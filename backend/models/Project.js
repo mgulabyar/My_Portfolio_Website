@@ -25,7 +25,7 @@ const projectSchema = new mongoose.Schema({
         trim: true
     },
     technologies: {
-        type: [String], // Array of strings (e.g., ["React", "Node.js", "VBA"])
+        type: [String],
         required: [true, 'Please provide technologies used in this project']
     },
     liveUrl: {
