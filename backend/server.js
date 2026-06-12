@@ -1,17 +1,21 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const connectDB = require('./config/db.js'); // 1. Connection helper ko import karein
 
 // Environment variables configure karein
 dotenv.config();
+
+// 2. Database Connection call karein
+connectDB();
 
 const app = express();
 
 // Standard Middlewares
 app.use(cors());
-app.use(express.json()); // Frontend se aane wale JSON data ko parse karne ke liye
+app.use(express.json());
 
-// Health Check API (Server testing ke liye)
+// Health Check API
 app.get('/api/health', (req, res) => {
     res.status(200).json({
         success: true,
