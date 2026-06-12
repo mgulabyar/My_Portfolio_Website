@@ -1,13 +1,11 @@
 const Inquiry = require('../models/Inquiry');
 
-// @desc    Submit a new client inquiry
-// @route   POST /api/inquiries
-// @access  Public
+// @desc   
+// @route   
+// @access 
 exports.createInquiry = async (req, res) => {
     try {
         const { name, email, company, serviceNeeded, budget, message } = req.body;
-
-        // Database me document create karein
         const inquiry = await Inquiry.create({
             name,
             email,
@@ -30,12 +28,11 @@ exports.createInquiry = async (req, res) => {
     }
 };
 
-// @desc    Get all client inquiries (For Admin Dashboard)
-// @route   GET /api/inquiries
-// @access  Private (Admin Only)
+// @desc  
+// @route   
+// @access 
 exports.getInquiries = async (req, res) => {
     try {
-        // Sabhi messages ko fetch karein, latest ko sab se pehle dikhane ke liye sort karein
         const inquiries = await Inquiry.find().sort({ createdAt: -1 });
 
         res.status(200).json({
@@ -51,14 +48,13 @@ exports.getInquiries = async (req, res) => {
     }
 };
 
-// @desc    Update inquiry status (For Admin Dashboard)
-// @route   PATCH /api/inquiries/:id/status
-// @access  Private (Admin Only)
+// @desc    
+// @route  
+// @access  
 exports.updateInquiryStatus = async (req, res) => {
     try {
         const { status } = req.body;
 
-        // Status validation check karein
         if (!['pending', 'contacted', 'resolved'].includes(status)) {
             return res.status(400).json({
                 success: false,
@@ -75,7 +71,6 @@ exports.updateInquiryStatus = async (req, res) => {
             });
         }
 
-        // Status update karein
         inquiry.status = status;
         await inquiry.save();
 
@@ -92,9 +87,9 @@ exports.updateInquiryStatus = async (req, res) => {
     }
 };
 
-// @desc    Delete an inquiry (For Admin Dashboard)
-// @route   DELETE /api/inquiries/:id
-// @access  Private (Admin Only)
+// @desc 
+// @route   
+// @access  
 exports.deleteInquiry = async (req, res) => {
     try {
         const inquiry = await Inquiry.findById(req.params.id);
@@ -106,7 +101,6 @@ exports.deleteInquiry = async (req, res) => {
             });
         }
 
-        // Database se remove karein
         await inquiry.deleteOne();
 
         res.status(200).json({
