@@ -3,19 +3,15 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db.js');
 
-// Environment variables configuration
 dotenv.config();
 
-// Database Connection call
 connectDB();
 
 const app = express();
 
-// Standard Middlewares
 app.use(cors());
-app.use(express.json()); // JSON parsing middleware
+app.use(express.json()); 
 
-// Health Check API (Public)
 app.get('/api/health', (req, res) => {
     res.status(200).json({
         success: true,
@@ -24,12 +20,10 @@ app.get('/api/health', (req, res) => {
     });
 });
 
-// Mount API Routes
 app.use('/api/inquiries', require('./routes/inquiryRoutes'));
 app.use('/api/auth', require('./routes/authRoutes'));
-app.use('/api/projects', require('./routes/projectRoutes')); // Project routes
+app.use('/api/projects', require('./routes/projectRoutes')); 
 
-// Server Port Configuration
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
