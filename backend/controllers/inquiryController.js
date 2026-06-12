@@ -7,7 +7,6 @@ exports.createInquiry = async (req, res) => {
     try {
         const { name, email, company, serviceNeeded, budget, message } = req.body;
 
-        // Database me document create karein
         const inquiry = await Inquiry.create({
             name,
             email,
