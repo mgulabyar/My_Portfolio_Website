@@ -1,8 +1,5 @@
 const Inquiry = require('../models/Inquiry');
 
-// @desc   
-// @route   
-// @access 
 exports.createInquiry = async (req, res) => {
     try {
         const { name, email, company, serviceNeeded, budget, message } = req.body;
@@ -28,9 +25,6 @@ exports.createInquiry = async (req, res) => {
     }
 };
 
-// @desc  
-// @route   
-// @access 
 exports.getInquiries = async (req, res) => {
     try {
         const inquiries = await Inquiry.find().sort({ createdAt: -1 });
@@ -48,9 +42,7 @@ exports.getInquiries = async (req, res) => {
     }
 };
 
-// @desc    
-// @route  
-// @access  
+ 
 exports.updateInquiryStatus = async (req, res) => {
     try {
         const { status } = req.body;
@@ -86,10 +78,7 @@ exports.updateInquiryStatus = async (req, res) => {
         });
     }
 };
-
-// @desc 
-// @route   
-// @access  
+  
 exports.deleteInquiry = async (req, res) => {
     try {
         const inquiry = await Inquiry.findById(req.params.id);
