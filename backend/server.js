@@ -1,21 +1,21 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const connectDB = require('./config/db.js'); // 1. Connection helper ko import karein
+const connectDB = require('./config/db.js');
 
-// Environment variables configure karein
+// Environment variables configuration
 dotenv.config();
 
-// 2. Database Connection call karein
+// Database Connection call
 connectDB();
 
 const app = express();
 
 // Standard Middlewares
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); // JSON parsing middleware
 
-// Health Check API
+// Health Check API (Public)
 app.get('/api/health', (req, res) => {
     res.status(200).json({
         success: true,
@@ -24,7 +24,10 @@ app.get('/api/health', (req, res) => {
     });
 });
 
-// Server Port set karein
+// Mount API Routes
+app.use('/api/inquiries', require('./routes/inquiryRoutes'));
+
+// Server Port Configuration
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
