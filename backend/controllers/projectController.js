@@ -31,12 +31,11 @@ exports.createProject = async (req, res) => {
     }
 };
 
-// @desc    Get all projects (For portfolio visitors)
+// @desc    Get all projects
 // @route   GET /api/projects
 // @access  Public
 exports.getProjects = async (req, res) => {
     try {
-        // Sab se naye projects ko list me sab se pehle dikhayenge
         const projects = await Project.find().sort({ createdAt: -1 });
 
         res.status(200).json({
