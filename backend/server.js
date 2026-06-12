@@ -3,19 +3,15 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db.js');
 
-// Environment variables configuration
 dotenv.config();
 
-// Database Connection call
 connectDB();
 
 const app = express();
 
-// Standard Middlewares
 app.use(cors());
-app.use(express.json()); // JSON parsing middleware
+app.use(express.json()); 
 
-// Health Check API (Public)
 app.get('/api/health', (req, res) => {
     res.status(200).json({
         success: true,
