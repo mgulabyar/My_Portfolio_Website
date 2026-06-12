@@ -27,7 +27,7 @@ app.get('/api/health', (req, res) => {
 // Mount API Routes
 app.use('/api/inquiries', require('./routes/inquiryRoutes'));
 app.use('/api/auth', require('./routes/authRoutes'));
-app.use('/api/projects', require('./routes/projectRoutes')); // Project routes register karein
+app.use('/api/projects', require('./routes/projectRoutes')); // Project routes
 
 // Server Port Configuration
 const PORT = process.env.PORT || 5000;
