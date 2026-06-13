@@ -31,7 +31,6 @@ app.use('/api/projects', require('./routes/projectRoutes'));
 app.use('/api/profile', require('./routes/profileRoutes'));
 app.use('/api/skills', require('./routes/skillRoutes')); // Skills Route register karein
 
-// Server Port Configuration
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
