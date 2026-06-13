@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Code2, Terminal, Cpu } from 'lucide-react';
 
@@ -51,7 +50,7 @@ export default function Hero() {
             className="text-4xl sm:text-6xl font-black text-white leading-[1.1] tracking-tight"
           >
             Building Intelligent <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-amber filter drop-shadow-[0_0_15px_rgba(255,85,0,0.2)]">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-orange to-brand-amber filter drop-shadow-[0_0_15px_rgba(255,85,0,0.2)]">
               Web & Automation
             </span> <br />
             Ecosystems.
@@ -68,11 +67,11 @@ export default function Hero() {
             variants={slideBottomToTop}
             className="flex flex-wrap items-center gap-4 mt-2"
           >
-            <button className="px-6 py-3.5 rounded-xl bg-brand-orange hover:bg-brand-orange/90 text-white font-bold text-sm tracking-wide shadow-glow-orange transition-all duration-300 flex items-center gap-2 group cursor-pointer hover:translate-y-[-2px]">
+            <button className="px-6 py-3.5 rounded-xl bg-brand-orange hover:bg-brand-orange/90 text-white font-bold text-sm tracking-wide shadow-glow-orange transition-all duration-300 flex items-center gap-2 group cursor-pointer hover:-translate-y-0.5">
               Hire Me Today
-              <ArrowUpRight className="h-4 w-4 group-hover:translate-x-1 group-hover:translate-y-[-1px] transition-transform duration-300" />
+              <ArrowUpRight className="h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-px transition-transform duration-300" />
             </button>
-            <button className="px-6 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold text-sm tracking-wide transition-all duration-300 cursor-pointer hover:translate-y-[-2px]">
+            <button className="px-6 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold text-sm tracking-wide transition-all duration-300 cursor-pointer hover:-translate-y-0.5">
               View Portfolio
             </button>
           </motion.div>
