@@ -1,42 +1,35 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const helmet = require('helmet'); // Security headers
-const mongoSanitize = require('express-mongo-sanitize'); // NoSQL Injection prevention
-const hpp = require('hpp'); // HTTP Parameter Pollution prevention
-const rateLimit = require('express-rate-limit'); // Brute-force & Spam protection
+const helmet = require('helmet'); 
+const hpp = require('hpp'); 
+const rateLimit = require('express-rate-limit'); 
+const { mongoSanitize } = require('./middleware/sanitizeMiddleware'); 
 const connectDB = require('./config/db.js');
 
-// Environment variables configuration
 dotenv.config();
 
-// Database Connection call
 connectDB();
 
 const app = express();
 
-// 1. Enterprise Security Middlewares
-app.use(helmet()); // Secure HTTP headers
-app.use(mongoSanitize()); // Prevent NoSQL Query Injection
-app.use(hpp()); // Prevent HTTP Parameter Pollution
+app.use(helmet()); 
+app.use(mongoSanitize); 
+app.use(hpp());
 
-// CORS Configuration (Enterprise level)
 const corsOptions = {
     origin: process.env.NODE_ENV === 'production' 
-        ? ['https://gulabyar.com', 'https://www.gulabyar.com'] // Production domains
-        : '*', // Allow all origins in development mode
+        ? ['https://gulabyar.com', 'https://www.gulabyar.com']
+        : '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     allowedHeaders: ['Content-Type', 'Authorization']
 };
 app.use(cors(corsOptions));
 
-// Standard Middlewares
-app.use(express.json()); // JSON parsing middleware
+app.use(express.json()); 
 
-// 2. Rate Limiting Implementation
-// Global Limiter (General routes: 15 minutes window, max 100 requests)
 const globalLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
+    windowMs: 15 * 60 * 1000,
     max: 100,
     message: {
         success: false,
@@ -45,9 +38,8 @@ const globalLimiter = rateLimit({
 });
 app.use('/api', globalLimiter);
 
-// Stricter Limiter for Sensitive Routes (Login & Inquiry forms: 1 hour window, max 10 requests)
 const strictLimiter = rateLimit({
-    windowMs: 60 * 60 * 1000, // 1 hour
+    windowMs: 60 * 60 * 1000, 
     max: 10,
     message: {
         success: false,
@@ -55,9 +47,8 @@ const strictLimiter = rateLimit({
     }
 });
 app.use('/api/auth/login', strictLimiter);
-app.use('/api/inquiries', strictLimiter); // Block mail spam bots on contact form
+app.use('/api/inquiries', strictLimiter); 
 
-// Health Check API (Public)
 app.get('/api/health', (req, res) => {
     res.status(200).json({
         success: true,
@@ -66,14 +57,12 @@ app.get('/api/health', (req, res) => {
     });
 });
 
-// Mount API Routes
 app.use('/api/inquiries', require('./routes/inquiryRoutes'));
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/projects', require('./routes/projectRoutes'));
 app.use('/api/profile', require('./routes/profileRoutes'));
 app.use('/api/skills', require('./routes/skillRoutes'));
 
-// Server Port Configuration
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
