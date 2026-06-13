@@ -1,6 +1,6 @@
- 
 import React from 'react';
-import {  ArrowUp } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowUp } from 'lucide-react';
 
 const GithubIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -28,33 +28,50 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const footerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 1.5, ease: [0.16, 1, 0.3, 1] as const }
+    }
+  };
+
   return (
-    <footer className="w-full border-t border-white/5 bg-brand-dark/95 py-12 px-6 md:px-12 mt-16 select-none">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 pb-8">
+    <motion.footer 
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.1 }}
+      variants={footerVariants}
+      className="w-full border-t border-white/5 bg-brand-dark/95 py-12 px-6 md:px-12 mt-16 select-none"
+    >
+      <div className="max-w-350 mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 pb-8">
         
-        {/* Column 1: Intro & Dynamic Circular Socials (Inspired by screenshot) */}
         <div className="md:col-span-4 flex flex-col gap-4">
-          <div className="text-xl font-black tracking-wider text-white">
-            Gulab<span className="text-brand-orange">Yar</span>
+          <div className="flex items-center gap-2 select-none group">
+            <svg viewBox="0 0 24 24" className="h-7 w-7 text-brand-orange filter drop-shadow-[0_0_6px_#FF5500] transition-transform duration-700 group-hover:rotate-180" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
+            <span className="text-xl font-black tracking-wider text-white">
+              Gulab<span className="text-brand-orange">Yar</span>
+            </span>
           </div>
           <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
             Specializing in developing custom Office add-ins, Google add-ons, and full-stack MERN solutions to empower businesses, enhance productivity and streamline workflows.
           </p>
-          {/* Circular high-contrast social buttons */}
           <div className="flex items-center gap-3 mt-2">
-            <a href="https://www.linkedin.com/in/m-gulab-yar-508742378/" target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-[#0077B5] hover:bg-[#0077B5]/85 text-white flex items-center justify-center transition-all duration-300 shadow-lg shadow-blue-500/10 hover:scale-105">
+            <a href="https://www.linkedin.com/in/m-gulab-yar-508742378/" target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-white/5 border border-white/10 hover:border-brand-orange hover:bg-brand-orange text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-glow-orange hover:scale-110">
               <LinkedinIcon className="h-5 w-5" />
             </a>
-            <a href="https://github.com/mgulabyar" target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-black border border-white/10 hover:bg-zinc-900 text-white flex items-center justify-center transition-all duration-300 hover:scale-105">
+            <a href="https://github.com/mgulabyar" target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-white/5 border border-white/10 hover:border-brand-orange hover:bg-brand-orange text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-glow-orange hover:scale-110">
               <GithubIcon className="h-5 w-5" />
             </a>
-            <a href="https://twitter.com/gulabyar" target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-[#1DA1F2] hover:bg-[#1DA1F2]/85 text-white flex items-center justify-center transition-all duration-300 shadow-lg shadow-sky-500/10 hover:scale-105">
+            <a href="https://twitter.com/gulabyar" target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-white/5 border border-white/10 hover:border-brand-orange hover:bg-brand-orange text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-glow-orange hover:scale-110">
               <TwitterIcon className="h-5 w-5" />
             </a>
           </div>
         </div>
 
-        {/* Column 2: Office 365 Add-ins Links */}
         <div className="md:col-span-2 flex flex-col gap-3">
           <h4 className="text-sm font-extrabold text-white uppercase tracking-wider">Office 365 Add-ins</h4>
           <ul className="flex flex-col gap-2 text-sm text-slate-400">
@@ -65,18 +82,16 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Column 3: Google Add-ons Links */}
         <div className="md:col-span-2 flex flex-col gap-3">
           <h4 className="text-sm font-extrabold text-white uppercase tracking-wider">Google add ons</h4>
           <ul className="flex flex-col gap-2 text-sm text-slate-400">
-            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Gmail Add ons</li>
-            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Google Docs Add on</li>
-            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Google Sheets Add on</li>
-            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Google forms Addons</li>
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Google Sheets Add-ons</li>
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Google Slides Add-ons</li>
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Google Docs Add-ons</li>
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Gmail Add-ons</li>
           </ul>
         </div>
 
-        {/* Column 4: Integrations & Cloud */}
         <div className="md:col-span-2 flex flex-col gap-3">
           <h4 className="text-sm font-extrabold text-white uppercase tracking-wider">Integrations</h4>
           <ul className="flex flex-col gap-2 text-sm text-slate-400">
@@ -87,7 +102,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Column 5: Business */}
         <div className="md:col-span-2 flex flex-col gap-3">
           <h4 className="text-sm font-extrabold text-white uppercase tracking-wider">Business</h4>
           <ul className="flex flex-col gap-2 text-sm text-slate-400">
@@ -100,18 +114,17 @@ export default function Footer() {
 
       </div>
 
-      {/* Copyright area with smooth Back to Top */}
-      <div className="max-w-7xl mx-auto border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="max-w-350 mx-auto border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-xs text-slate-500">
           Copyright &copy; 2026. All rights reserved by Gulab Yar.
         </p>
         <button 
           onClick={scrollToTop}
-          className="p-2.5 rounded-full bg-white/5 border border-white/5 hover:border-brand-orange/30 text-slate-400 hover:text-brand-orange transition-all duration-300 cursor-pointer shadow-glow-soft hover:scale-105"
+          className="p-2.5 rounded-full bg-white/5 border border-white/5 hover:bg-brand-orange hover:border-brand-orange/30 text-slate-400 hover:text-white transition-all duration-300 cursor-pointer shadow-glow-soft hover:scale-105"
         >
           <ArrowUp className="h-4 w-4" />
         </button>
       </div>
-    </footer>
+    </motion.footer>
   );
 }
