@@ -1,8 +1,5 @@
 const Skill = require('../models/Skill');
 
-// @desc    Create a new skill
-// @route   POST /api/skills
-// @access  Private (Admin Only)
 exports.createSkill = async (req, res) => {
     try {
         const { name, percentage, category, icon, featured } = req.body;
@@ -28,12 +25,8 @@ exports.createSkill = async (req, res) => {
     }
 };
 
-// @desc    Get all skills (Public)
-// @route   GET /api/skills
-// @access  Public
 exports.getSkills = async (req, res) => {
     try {
-        // Categories aur sorting ke sath skills fetch karein
         const skills = await Skill.find().sort({ category: 1, percentage: -1 });
 
         res.status(200).json({
@@ -49,9 +42,6 @@ exports.getSkills = async (req, res) => {
     }
 };
 
-// @desc    Update skill
-// @route   PUT /api/skills/:id
-// @access  Private (Admin Only)
 exports.updateSkill = async (req, res) => {
     try {
         let skill = await Skill.findById(req.params.id);
@@ -81,9 +71,7 @@ exports.updateSkill = async (req, res) => {
     }
 };
 
-// @desc    Delete skill
-// @route   DELETE /api/skills/:id
-// @access  Private (Admin Only)
+
 exports.deleteSkill = async (req, res) => {
     try {
         const skill = await Skill.findById(req.params.id);
