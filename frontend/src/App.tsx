@@ -1,39 +1,35 @@
-import React from 'react';
+import React from "react";
+import { motion } from "framer-motion";
+import Header from "./components/Navbar/Header";
+import Main from "./components/main/Main";
+import Footer from "./components/footer/Footer";
 
-function App() {
+export default function App() {
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1.5 } },
+  };
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-brand-dark px-4 selection:bg-brand-orange selection:text-white relative overflow-hidden">
-      {/* Starry glowing gradient overlay background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-blue-900/20 via-brand-dark to-brand-dark -z-10"></div>
-      
-      <div className="text-center max-w-2xl z-10">
-        {/* Dynamic Brand Logo Section */}
-        <div className="flex items-center justify-center gap-3 mb-6 animate-pulse">
-          <div className="h-12 w-12 rounded-xl bg-linear-to-tr from-brand-orange to-amber-500 flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-brand-orange/20">
-            &#123;Y&#125;
-          </div>
-          <span className="text-3xl font-extrabold tracking-wider bg-linear-to-r from-white via-slate-100 to-brand-orange bg-clip-text text-transparent">
-            YarDev<span className="text-brand-orange">.</span>
-          </span>
-        </div>
+    <div className="relative min-h-screen bg-brand-dark selection:bg-brand-orange selection:text-white overflow-hidden">
+      {/* 1. Header (Navbar) */}
+      <Header />
 
-        {/* Dynamic Title */}
-        <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-none mb-4">
-          Welcome to <span className="text-brand-orange">NovaStack Engine</span>
-        </h1>
-        
-        <p className="text-lg text-slate-400 mb-8 max-w-lg mx-auto">
-          Enterprise-grade portfolio and dynamic agency hub is successfully initialized with React, Vite, TypeScript, and Tailwind CSS.
-        </p>
+      {/* 2. Starry Glow Gradients */}
+      <motion.div
+        variants={fadeIn}
+        initial="hidden"
+        animate="visible"
+        className="absolute inset-0 -z-10"
+      >
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-brand-orange/5 blur-[120px]"></div>
+        <div className="absolute bottom-[10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-blue-900/10 blur-[150px]"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-size-[40px_40px]"></div>
+      </motion.div>
 
-        {/* Status Indicator */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/40 border border-slate-700/50 text-brand-orange text-sm font-semibold shadow-inner">
-          <span className="h-2.5 w-2.5 rounded-full bg-green-500 animate-ping"></span>
-          Frontend is Healthy & Active
-        </div>
-      </div>
+      <Main />
+
+      <Footer />
     </div>
   );
 }
-
-export default App;
