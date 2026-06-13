@@ -3,8 +3,7 @@ const router = express.Router();
 const { getProfile, updateProfile } = require('../controllers/profileController');
 const { protect } = require('../middleware/authMiddleware');
 
-// Define Routes
 router.get('/', getProfile);
-router.put('/', protect, updateProfile); // Admin strictly required
+router.put('/', protect, updateProfile); 
 
 module.exports = router;
