@@ -11,10 +11,8 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-brand-dark selection:bg-brand-orange selection:text-white overflow-hidden">
-      {/* 1. Header (Navbar) */}
       <Header />
 
-      {/* 2. Starry Glow Gradients */}
       <motion.div
         variants={fadeIn}
         initial="hidden"
@@ -32,3 +30,6 @@ export default function App() {
     </div>
   );
 }
+
+
+
