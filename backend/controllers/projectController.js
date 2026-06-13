@@ -1,8 +1,5 @@
 const Project = require('../models/Project');
 
-// @desc    Create a new project
-// @route   POST /api/projects
-// @access  Private (Admin Only)
 exports.createProject = async (req, res) => {
     try {
         const { title, description, category, gifUrl, technologies, liveUrl, githubUrl, featured } = req.body;
@@ -31,9 +28,7 @@ exports.createProject = async (req, res) => {
     }
 };
 
-// @desc    Get all projects
-// @route   GET /api/projects
-// @access  Public
+
 exports.getProjects = async (req, res) => {
     try {
         const projects = await Project.find().sort({ createdAt: -1 });
@@ -51,9 +46,6 @@ exports.getProjects = async (req, res) => {
     }
 };
 
-// @desc    Update an existing project
-// @route   PUT /api/projects/:id
-// @access  Private (Admin Only)
 exports.updateProject = async (req, res) => {
     try {
         let project = await Project.findById(req.params.id);
@@ -65,7 +57,6 @@ exports.updateProject = async (req, res) => {
             });
         }
 
-        // Project details update karein
         project = await Project.findByIdAndUpdate(req.params.id, req.body, {
             new: true,
             runValidators: true
@@ -84,9 +75,6 @@ exports.updateProject = async (req, res) => {
     }
 };
 
-// @desc    Delete a project
-// @route   DELETE /api/projects/:id
-// @access  Private (Admin Only)
 exports.deleteProject = async (req, res) => {
     try {
         const project = await Project.findById(req.params.id);
