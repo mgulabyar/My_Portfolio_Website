@@ -21,12 +21,12 @@ const skillSchema = new mongoose.Schema({
         }
     },
     icon: {
-        type: String, // SVG path code ya class name store karne ke liye
+        type: String, 
         default: ''
     },
     featured: {
         type: Boolean,
-        default: false // Homepage par dynamic icons ke sath show karne ke liye
+        default: false 
     }
 }, { timestamps: true });
 
