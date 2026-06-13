@@ -15,7 +15,6 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // JSON parsing middleware
 
-// Health Check API (Public)
 app.get('/api/health', (req, res) => {
     res.status(200).json({
         success: true,
@@ -24,12 +23,11 @@ app.get('/api/health', (req, res) => {
     });
 });
 
-// Mount API Routes
 app.use('/api/inquiries', require('./routes/inquiryRoutes'));
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/projects', require('./routes/projectRoutes'));
 app.use('/api/profile', require('./routes/profileRoutes'));
-app.use('/api/skills', require('./routes/skillRoutes')); // Skills Route register karein
+app.use('/api/skills', require('./routes/skillRoutes')); 
 
 const PORT = process.env.PORT || 5000;
 
