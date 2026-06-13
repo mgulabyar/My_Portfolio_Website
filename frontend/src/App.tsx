@@ -4,15 +4,15 @@ function App() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-brand-dark px-4 selection:bg-brand-orange selection:text-white relative overflow-hidden">
       {/* Starry glowing gradient overlay background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-brand-dark to-brand-dark -z-10"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-blue-900/20 via-brand-dark to-brand-dark -z-10"></div>
       
       <div className="text-center max-w-2xl z-10">
         {/* Dynamic Brand Logo Section */}
         <div className="flex items-center justify-center gap-3 mb-6 animate-pulse">
-          <div className="h-12 w-12 rounded-xl bg-gradient-to-tr from-brand-orange to-amber-500 flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-brand-orange/20">
+          <div className="h-12 w-12 rounded-xl bg-linear-to-tr from-brand-orange to-amber-500 flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-brand-orange/20">
             &#123;Y&#125;
           </div>
-          <span className="text-3xl font-extrabold tracking-wider bg-gradient-to-r from-white via-slate-100 to-brand-orange bg-clip-text text-transparent">
+          <span className="text-3xl font-extrabold tracking-wider bg-linear-to-r from-white via-slate-100 to-brand-orange bg-clip-text text-transparent">
             YarDev<span className="text-brand-orange">.</span>
           </span>
         </div>
