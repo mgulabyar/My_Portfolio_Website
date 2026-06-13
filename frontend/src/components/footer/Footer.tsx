@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { Mail, ArrowUp } from 'lucide-react';
 
-// Custom lightweight stable SVG icons matching Lucide style
 const GithubIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
     <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
@@ -17,45 +17,100 @@ const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
+const TwitterIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+  </svg>
+);
+
 export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <footer className="w-full border-t border-white/5 bg-brand-dark/50 backdrop-blur-sm py-8 px-6 md:px-12 mt-10">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer className="w-full border-t border-white/5 bg-brand-dark/95 py-12 px-6 md:px-12 mt-16 select-none">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 pb-8">
         
-        {/* Dynamic Logo Name */}
-        <div className="text-lg font-black tracking-wider text-white select-none">
-          Gulab<span className="text-brand-orange">Yar</span>
+        {/* Column 1: Intro & Dynamic Circular Socials (Inspired by screenshot) */}
+        <div className="md:col-span-4 flex flex-col gap-4">
+          <div className="text-xl font-black tracking-wider text-white">
+            Gulab<span className="text-brand-orange">Yar</span>
+          </div>
+          <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
+            Specializing in developing custom Office add-ins, Google add-ons, and full-stack MERN solutions to empower businesses, enhance productivity and streamline workflows.
+          </p>
+          {/* Circular high-contrast social buttons */}
+          <div className="flex items-center gap-3 mt-2">
+            <a href="https://linkedin.com/in/gulabyar" target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-[#0077B5] hover:bg-[#0077B5]/85 text-white flex items-center justify-center transition-all duration-300 shadow-lg shadow-blue-500/10 hover:scale-105">
+              <LinkedinIcon className="h-5 w-5" />
+            </a>
+            <a href="https://github.com/gulabyar" target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-black border border-white/10 hover:bg-zinc-900 text-white flex items-center justify-center transition-all duration-300 hover:scale-105">
+              <GithubIcon className="h-5 w-5" />
+            </a>
+            <a href="https://twitter.com/gulabyar" target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-[#1DA1F2] hover:bg-[#1DA1F2]/85 text-white flex items-center justify-center transition-all duration-300 shadow-lg shadow-sky-500/10 hover:scale-105">
+              <TwitterIcon className="h-5 w-5" />
+            </a>
+          </div>
         </div>
 
-        {/* Dynamic Copyright with exact year (2026) */}
-        <p className="text-sm text-slate-500">
-          &copy; 2026 GulabYar. All rights reserved.
+        {/* Column 2: Office 365 Add-ins Links */}
+        <div className="md:col-span-2 flex flex-col gap-3">
+          <h4 className="text-sm font-extrabold text-white uppercase tracking-wider">Office 365 Add-ins</h4>
+          <ul className="flex flex-col gap-2 text-sm text-slate-400">
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Outlook add-ins</li>
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Word add-ins</li>
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Excel add-ins</li>
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Powerpoint add-ins</li>
+          </ul>
+        </div>
+
+        {/* Column 3: Google Add-ons Links */}
+        <div className="md:col-span-2 flex flex-col gap-3">
+          <h4 className="text-sm font-extrabold text-white uppercase tracking-wider">Google add ons</h4>
+          <ul className="flex flex-col gap-2 text-sm text-slate-400">
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Gmail Add ons</li>
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Google Docs Add on</li>
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Google Sheets Add on</li>
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Google forms Addons</li>
+          </ul>
+        </div>
+
+        {/* Column 4: Integrations & Cloud */}
+        <div className="md:col-span-2 flex flex-col gap-3">
+          <h4 className="text-sm font-extrabold text-white uppercase tracking-wider">Integrations</h4>
+          <ul className="flex flex-col gap-2 text-sm text-slate-400">
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">OpenAI / ChatGPT</li>
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">MERN Stack APIs</li>
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Vercel & Azure</li>
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">CI/CD Workflows</li>
+          </ul>
+        </div>
+
+        {/* Column 5: Business */}
+        <div className="md:col-span-2 flex flex-col gap-3">
+          <h4 className="text-sm font-extrabold text-white uppercase tracking-wider">Business</h4>
+          <ul className="flex flex-col gap-2 text-sm text-slate-400">
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Microsoft Cloud</li>
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Microsoft Security</li>
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Database Pipelines</li>
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">VBA Macros Logic</li>
+          </ul>
+        </div>
+
+      </div>
+
+      {/* Copyright area with smooth Back to Top */}
+      <div className="max-w-7xl mx-auto border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p className="text-xs text-slate-500">
+          Copyright &copy; 2026. All rights reserved by Gulab Yar.
         </p>
-
-        {/* Social Icons & Back to Top */}
-        <div className="flex items-center gap-6">
-          <a href="https://github.com/gulabyar" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-brand-orange transition-colors duration-300">
-            <GithubIcon className="h-5 w-5" />
-          </a>
-          <a href="https://linkedin.com/in/gulabyar" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-brand-orange transition-colors duration-300">
-            <LinkedinIcon className="h-5 w-5" />
-          </a>
-          <a href="mailto:gulabyar@example.com" className="text-slate-400 hover:text-brand-orange transition-colors duration-300">
-            <Mail className="h-5 w-5" />
-          </a>
-          
-          <button 
-            onClick={scrollToTop}
-            className="p-2 rounded-lg bg-white/5 border border-white/5 hover:border-brand-orange/30 text-slate-400 hover:text-brand-orange transition-all duration-300 cursor-pointer shadow-glow-soft"
-          >
-            <ArrowUp className="h-4 w-4" />
-          </button>
-        </div>
-
+        <button 
+          onClick={scrollToTop}
+          className="p-2.5 rounded-full bg-white/5 border border-white/5 hover:border-brand-orange/30 text-slate-400 hover:text-brand-orange transition-all duration-300 cursor-pointer shadow-glow-soft hover:scale-105"
+        >
+          <ArrowUp className="h-4 w-4" />
+        </button>
       </div>
     </footer>
   );
