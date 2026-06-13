@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+ 
 import React from 'react';
-import { Mail, ArrowUp } from 'lucide-react';
+import {  ArrowUp } from 'lucide-react';
 
 const GithubIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -42,10 +42,10 @@ export default function Footer() {
           </p>
           {/* Circular high-contrast social buttons */}
           <div className="flex items-center gap-3 mt-2">
-            <a href="https://linkedin.com/in/gulabyar" target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-[#0077B5] hover:bg-[#0077B5]/85 text-white flex items-center justify-center transition-all duration-300 shadow-lg shadow-blue-500/10 hover:scale-105">
+            <a href="https://www.linkedin.com/in/m-gulab-yar-508742378/" target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-[#0077B5] hover:bg-[#0077B5]/85 text-white flex items-center justify-center transition-all duration-300 shadow-lg shadow-blue-500/10 hover:scale-105">
               <LinkedinIcon className="h-5 w-5" />
             </a>
-            <a href="https://github.com/gulabyar" target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-black border border-white/10 hover:bg-zinc-900 text-white flex items-center justify-center transition-all duration-300 hover:scale-105">
+            <a href="https://github.com/mgulabyar" target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-black border border-white/10 hover:bg-zinc-900 text-white flex items-center justify-center transition-all duration-300 hover:scale-105">
               <GithubIcon className="h-5 w-5" />
             </a>
             <a href="https://twitter.com/gulabyar" target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-[#1DA1F2] hover:bg-[#1DA1F2]/85 text-white flex items-center justify-center transition-all duration-300 shadow-lg shadow-sky-500/10 hover:scale-105">

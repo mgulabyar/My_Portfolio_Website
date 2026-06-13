@@ -231,7 +231,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Code, Cpu, ShieldCheck, Zap } from 'lucide-react';
+import { ArrowUpRight, Code, Cpu,  Zap, Award, Users } from 'lucide-react';
 import profileImg from '../../assets/profile.png';
 
 export default function Hero() {
@@ -252,15 +252,16 @@ export default function Hero() {
   const defaultProfile = {
     name: "Muhammad Gulab Yar",
     title: "Full-Stack Web Developer & Automation Expert",
-    bio: "I am a professional Full-Stack Developer with 4 years of experience, specializing in the MERN stack, Python, ASP.NET Core, and Angular. My expertise includes building custom Office Add-ins, Google Add-ons, dynamic VBA/Macros, and seamless AI integration services.",
-    email: "gulabyar@example.com",
-    resumeUrl: "https://example.com/assets/gulab-yar-resume.pdf"
+    bio: "I am a professional Full-Stack Developer with 4 years of solid industry experience specializing in the MERN stack, Python, ASP.NET Core, and Angular. My core expertise lies in designing highly scalable custom web architectures, complex MS Office Add-ins built with Office.js, Google Workspace Add-ons, and dynamic VBA/Macros. I specialize in bridging the gap between secure cloud databases and automated workflows, integrating smart AI APIs, and delivering fast, automated business ecosystems.",
+    email: "mgulabyaarmgulabyaar@gmail.com",
+    resumeUrl: "https://example.com/assets/gulab-yar-resume.pdf",
+    contactUrl: "#contact"
   };
 
   const data = profile || defaultProfile;
 
   const techStack = [
-    "React", "Node.js", "Express", "MongoDB", "TypeScript", 
+    "ASP.NET Core", "Angular", "React", "Node.js", "Express", "MongoDB", "TypeScript", 
     "Python", "VBA Macros", "Office.js", "Apps Script", "OpenAI API", 
     "PostgreSQL", "Next.js", "Tailwind CSS", "Azure", "GitHub CI/CD"
   ];
@@ -269,7 +270,7 @@ export default function Hero() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.25, delayChildren: 0.4 }
+      transition: { staggerChildren: 0.4, delayChildren: 0.5 }
     }
   };
 
@@ -292,12 +293,32 @@ export default function Hero() {
   };
 
   const slowSlideUp = {
-    hidden: { opacity: 0, y: 60 },
+    hidden: { opacity: 0, y: 50 },
     visible: { 
       opacity: 1, 
       y: 0,
       transition: { duration: 1.8, ease: [0.16, 1, 0.3, 1] as const }
     }
+  };
+
+  const cardLeft = {
+    hidden: { opacity: 0, x: -100 },
+    visible: { opacity: 1, x: 0, transition: { duration: 1.5, ease: [0.16, 1, 0.3, 1] as const } }
+  };
+
+  const cardLeftCenter = {
+    hidden: { opacity: 0, x: -40 },
+    visible: { opacity: 1, x: 0, transition: { duration: 1.5, ease: [0.16, 1, 0.3, 1] as const } }
+  };
+
+  const cardRightCenter = {
+    hidden: { opacity: 0, x: 40 },
+    visible: { opacity: 1, x: 0, transition: { duration: 1.5, ease: [0.16, 1, 0.3, 1] as const } }
+  };
+
+  const cardRight = {
+    hidden: { opacity: 0, x: 100 },
+    visible: { opacity: 1, x: 0, transition: { duration: 1.5, ease: [0.16, 1, 0.3, 1] as const } }
   };
 
   const fadeIn = {
@@ -306,20 +327,20 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="pt-32 pb-16 min-h-screen flex flex-col justify-between">
+    <section id="home" className="pt-32 pb-8 flex flex-col">
       <motion.div 
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
-        className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full grow"
+        className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full"
       >
-        <div className="lg:col-span-5 flex flex-col items-center gap-6">
-          <motion.div 
-            variants={slowSlideLeft}
-            className="relative w-full max-w-82.5 rounded-2xl overflow-hidden border border-white/10 hover:border-brand-orange/40 shadow-glow-soft hover:shadow-glow-orange transition-all duration-700 ease-out p-1.5 bg-slate-900/40 group"
-          >
-            <div className="absolute inset-0 bg-linear-to-tr from-brand-orange/20 to-brand-amber/10 rounded-2xl blur-3xl animate-pulse -z-10"></div>
+        <motion.div 
+          variants={slowSlideLeft}
+          className="lg:col-span-5 flex justify-center relative group"
+        >
+          <div className="absolute inset-0 bg-linear-to-tr from-brand-orange/20 to-brand-amber/10 rounded-2xl blur-3xl animate-pulse -z-10"></div>
+          <div className="relative w-full max-w-82.5 rounded-2xl overflow-hidden border border-white/10 hover:border-brand-orange/40 shadow-glow-soft hover:shadow-glow-orange transition-all duration-700 ease-out p-1.5 bg-slate-900/40">
             <img 
               src={data.avatarUrl || profileImg} 
               alt={data.name} 
@@ -328,18 +349,10 @@ export default function Hero() {
                 e.currentTarget.src = profileImg;
               }}
             />
-          </motion.div>
+          </div>
+        </motion.div>
 
-          <motion.div 
-            variants={slowSlideLeft}
-            className="w-full max-w-82.5 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-slate-900/40 border border-white/5 backdrop-blur-sm text-xs font-mono text-slate-300 shadow-inner"
-          >
-            <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
-            <span>Available for Remote Contracts</span>
-          </motion.div>
-        </div>
-
-        <div className="lg:col-span-7 flex flex-col gap-5">
+        <div className="lg:col-span-7 flex flex-col gap-4">
           <motion.h1 
             variants={slowSlideRight}
             className="text-4xl sm:text-5xl font-black text-white leading-tight tracking-tight"
@@ -361,38 +374,16 @@ export default function Hero() {
             variants={slowSlideUp}
             className="text-sm sm:text-base text-slate-400 max-w-xl leading-relaxed"
           >
-            {data.bio}
+            I am a professional Full-Stack Developer with 4 years of solid industry experience specializing in the MERN stack, Python, ASP.NET Core, and Angular. My core expertise lies in designing highly scalable custom web architectures, complex MS Office Add-ins built with Office.js, Google Workspace Add-ons, and dynamic VBA/Macros. I specialize in bridging the gap between secure cloud databases and automated workflows, integrating smart AI APIs, and delivering fast, automated business ecosystems.
+            {/* {data.bio} */}
           </motion.p>
-
-          <motion.div 
-            variants={slowSlideUp}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-6 my-8 border-t border-b border-white/5 py-6"
-          >
-            <div className="p-4 rounded-xl bg-slate-900/40 border border-white/5 shadow-glow-soft hover:border-brand-orange/30 hover:shadow-glow-orange transition-all duration-500 flex flex-col gap-2 group cursor-pointer">
-              <Code className="h-5 w-5 text-brand-orange group-hover:scale-110 transition-transform duration-300" />
-              <span className="text-lg font-black text-white">04+ Years</span>
-              <span className="text-[10px] text-slate-400 uppercase tracking-widest font-semibold">Tech Journey</span>
-            </div>
-            
-            <div className="p-4 rounded-xl bg-slate-900/40 border border-white/5 shadow-glow-soft hover:border-brand-orange/30 hover:shadow-glow-orange transition-all duration-500 flex flex-col gap-2 group cursor-pointer">
-              <Cpu className="h-5 w-5 text-brand-orange group-hover:scale-110 transition-transform duration-300" />
-              <span className="text-lg font-black text-white">50+ Apps</span>
-              <span className="text-[10px] text-slate-400 uppercase tracking-widest font-semibold">Built Worldwide</span>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-900/40 border border-white/5 shadow-glow-soft hover:border-brand-orange/30 hover:shadow-glow-orange transition-all duration-500 flex flex-col gap-2 group cursor-pointer">
-              <ShieldCheck className="h-5 w-5 text-brand-orange group-hover:scale-110 transition-transform duration-300" />
-              <span className="text-lg font-black text-white">10k+ Hours</span>
-              <span className="text-[10px] text-slate-400 uppercase tracking-widest font-semibold">Manual Work Saved</span>
-            </div>
-          </motion.div>
 
           <motion.div 
             variants={slowSlideUp}
             className="flex flex-wrap items-center gap-4 mt-2"
           >
             <a 
-              href="#contact"
+              href={data.contactUrl || "#contact"}
               className="relative overflow-hidden px-6 py-2.5 rounded-lg border border-brand-orange text-white font-bold text-sm tracking-wide transition-all duration-500 flex items-center gap-2 group cursor-pointer hover:shadow-glow-orange hover:-translate-y-0.5"
             >
               <span className="absolute inset-0 w-full h-full bg-linear-to-r from-brand-orange to-brand-amber -z-10 transition-transform duration-500 -translate-x-full group-hover:translate-x-0 ease-out"></span>
@@ -408,6 +399,65 @@ export default function Hero() {
               <span className="z-10">Schedule Call</span>
               <ArrowUpRight className="h-4 w-4 z-10 group-hover:translate-x-0.5 group-hover:translate-y-[-0.5px] transition-transform duration-300" />
             </a>
+          </motion.div>
+        </div>
+      </motion.div>
+
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+        className="w-full mt-16 flex flex-col items-center gap-2"
+      >
+        <motion.h3 
+          variants={slowSlideUp}
+          className="text-2xl sm:text-3xl font-extrabold text-white text-center tracking-tight"
+        >
+          Delivering Measured Business Impact
+        </motion.h3>
+        
+        <motion.p 
+          variants={slowSlideUp}
+          className="text-xs sm:text-sm text-slate-400 text-center max-w-lg mx-auto leading-relaxed mb-4"
+        >
+          Proven performance metrics reflecting years of specialized automation and scalable full-stack development.
+        </motion.p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full mt-4">
+          <motion.div 
+            variants={cardLeft}
+            className="p-6 rounded-xl bg-slate-900/40 border border-white/5 shadow-glow-soft hover:border-brand-orange/30 hover:shadow-glow-orange transition-all duration-500 flex flex-col items-center gap-2 text-center group cursor-pointer"
+          >
+            <Award className="h-8 w-8 text-brand-orange group-hover:scale-110 transition-transform duration-300" />
+            <span className="text-xl font-black text-white">04+ Years</span>
+            <span className="text-[10px] text-slate-400 uppercase tracking-widest font-semibold">Tech Journey</span>
+          </motion.div>
+
+          <motion.div 
+            variants={cardLeftCenter}
+            className="p-6 rounded-xl bg-slate-900/40 border border-white/5 shadow-glow-soft hover:border-brand-orange/30 hover:shadow-glow-orange transition-all duration-500 flex flex-col items-center gap-2 text-center group cursor-pointer"
+          >
+            <Code className="h-8 w-8 text-brand-orange group-hover:scale-110 transition-transform duration-300" />
+            <span className="text-xl font-black text-white">50+ Apps</span>
+            <span className="text-[10px] text-slate-400 uppercase tracking-widest font-semibold">Built Worldwide</span>
+          </motion.div>
+
+          <motion.div 
+            variants={cardRightCenter}
+            className="p-6 rounded-xl bg-slate-900/40 border border-white/5 shadow-glow-soft hover:border-brand-orange/30 hover:shadow-glow-orange transition-all duration-500 flex flex-col items-center gap-2 text-center group cursor-pointer"
+          >
+            <Cpu className="h-8 w-8 text-brand-orange group-hover:scale-110 transition-transform duration-300" />
+            <span className="text-xl font-black text-white">10k+ Hours</span>
+            <span className="text-[10px] text-slate-400 uppercase tracking-widest font-semibold">Manual Work Saved</span>
+          </motion.div>
+
+          <motion.div 
+            variants={cardRight}
+            className="p-6 rounded-xl bg-slate-900/40 border border-white/5 shadow-glow-soft hover:border-brand-orange/30 hover:shadow-glow-orange transition-all duration-500 flex flex-col items-center gap-2 text-center group cursor-pointer"
+          >
+            <Users className="h-8 w-8 text-brand-orange group-hover:scale-110 transition-transform duration-300" />
+            <span className="text-xl font-black text-white">99% Client</span>
+            <span className="text-[10px] text-slate-400 uppercase tracking-widest font-semibold">Satisfaction & Trust</span>
           </motion.div>
         </div>
       </motion.div>
