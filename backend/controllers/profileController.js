@@ -1,11 +1,7 @@
 const Profile = require('../models/Profile');
 
-// @desc    Get global profile configurations (Public)
-// @route   GET /api/profile
-// @access  Public
 exports.getProfile = async (req, res) => {
     try {
-        // Database se profile fetch karein (sirf ek hi copy exist karegi)
         const profile = await Profile.findOne();
 
         if (!profile) {
@@ -28,9 +24,6 @@ exports.getProfile = async (req, res) => {
     }
 };
 
-// @desc    Create or Update global profile (Admin Only)
-// @route   PUT /api/profile
-// @access  Private (Admin Only)
 exports.updateProfile = async (req, res) => {
     try {
         const { name, title, bio, experienceYears, email, phone, linkedinUrl, githubUrl, resumeUrl, avatarUrl } = req.body;
@@ -38,14 +31,12 @@ exports.updateProfile = async (req, res) => {
         let profile = await Profile.findOne();
 
         if (profile) {
-            // Agar profile pehle se hai to update karein
             profile = await Profile.findByIdAndUpdate(
                 profile._id,
                 { name, title, bio, experienceYears, email, phone, linkedinUrl, githubUrl, resumeUrl, avatarUrl },
                 { new: true, runValidators: true }
             );
         } else {
-            // Agar profile nahi hai to pehli dafa create karein
             profile = await Profile.create({
                 name,
                 title,
