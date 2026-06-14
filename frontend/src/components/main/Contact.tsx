@@ -179,7 +179,7 @@ export default function Contact() {
                   placeholder="Tell me about your project details..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-slate-950/60 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-orange transition-colors duration-300 resize-none"
+                  className="w-full px-6 md:px-12 py-3 rounded-xl bg-slate-950/60 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-orange transition-colors duration-300 resize-none"
                 />
               </div>
 
