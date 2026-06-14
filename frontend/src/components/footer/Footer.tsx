@@ -45,9 +45,9 @@ export default function Footer() {
       variants={footerVariants}
       className="w-full border-t border-white/5 bg-brand-dark/95 py-12 px-6 md:px-12 mt-16 select-none"
     >
-      <div className="max-w-350 mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 pb-8">
+      <div className="max-w-350 mx-auto flex flex-wrap gap-8 justify-between pb-8">
         
-        <div className="md:col-span-4 flex flex-col gap-4">
+        <div className="flex-1 min-w-70 max-w-sm flex flex-col gap-4">
           <div className="flex items-center gap-2 select-none group">
             <svg viewBox="0 0 24 24" className="h-7 w-7 text-brand-orange filter drop-shadow-[0_0_6px_#FF5500] transition-transform duration-700 group-hover:rotate-180" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
@@ -56,7 +56,7 @@ export default function Footer() {
               Gulab<span className="text-brand-orange">Yar</span>
             </span>
           </div>
-          <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
+          <p className="text-sm text-slate-400 leading-relaxed">
             Specializing in developing custom Office add-ins, Google add-ons, and full-stack MERN solutions to empower businesses, enhance productivity and streamline workflows.
           </p>
           <div className="flex items-center gap-3 mt-2">
@@ -72,7 +72,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="md:col-span-2 flex flex-col gap-3">
+        <div className="min-w-40 flex-1 flex flex-col gap-3">
           <h4 className="text-sm font-extrabold text-white uppercase tracking-wider">Office 365 Add-ins</h4>
           <ul className="flex flex-col gap-2 text-sm text-slate-400">
             <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Outlook add-ins</li>
@@ -82,7 +82,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="md:col-span-2 flex flex-col gap-3">
+        <div className="min-w-40 flex-1 flex flex-col gap-3">
           <h4 className="text-sm font-extrabold text-white uppercase tracking-wider">Google add ons</h4>
           <ul className="flex flex-col gap-2 text-sm text-slate-400">
             <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Gmail Add ons</li>
@@ -92,7 +92,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="md:col-span-2 flex flex-col gap-3">
+        <div className="min-w-40 flex-1 flex flex-col gap-3">
           <h4 className="text-sm font-extrabold text-white uppercase tracking-wider">Integrations</h4>
           <ul className="flex flex-col gap-2 text-sm text-slate-400">
             <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">OpenAI / ChatGPT</li>
@@ -102,7 +102,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="md:col-span-2 flex flex-col gap-3">
+        <div className="min-w-40 flex-1 flex flex-col gap-3">
           <h4 className="text-sm font-extrabold text-white uppercase tracking-wider">Business</h4>
           <ul className="flex flex-col gap-2 text-sm text-slate-400">
             <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Microsoft Cloud</li>
@@ -120,7 +120,7 @@ export default function Footer() {
         </p>
         <button 
           onClick={scrollToTop}
-          className="p-2.5 rounded-full bg-white/5 border border-white/5 hover:border-brand-orange/30 text-slate-400 hover:text-brand-orange transition-all duration-300 cursor-pointer shadow-glow-soft hover:scale-105"
+          className="p-2.5 rounded-full bg-white/5 border border-white/5 hover:border-brand-orange/30 text-slate-400 hover:bg-brand-orange hover:text-white transition-all duration-300 cursor-pointer shadow-glow-soft hover:scale-105"
         >
           <ArrowUp className="h-4 w-4" />
         </button>
