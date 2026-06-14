@@ -101,7 +101,7 @@ export default function Hero() {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full"
       >
         <motion.div 
@@ -174,7 +174,7 @@ export default function Hero() {
       <motion.div 
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.2 }}
         className="w-full mt-16 flex flex-col items-center gap-2"
       >
         <motion.h3 
@@ -234,7 +234,7 @@ export default function Hero() {
         variants={fadeIn}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         className="w-full mt-16 border-t border-b border-white/5 py-4 overflow-hidden relative"
       >
         <div className="absolute left-0 top-0 h-full w-20 bg-linear-to-r from-brand-dark to-transparent z-10"></div>
