@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Code, Cpu, ShieldCheck, Zap, Award, Users, Activity, Sparkles } from 'lucide-react';
 import profileImg from '../../assets/profile.png';
+import Footer from '../footer/Footer';
 
 export default function Hero() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -104,14 +105,14 @@ export default function Hero() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
-        className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full"
+        className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center w-full"
       >
         <motion.div 
           variants={slowSlideLeft}
           className="lg:col-span-5 flex justify-center relative group"
         >
           <div className="absolute inset-0 bg-linear-to-tr from-brand-orange/10 to-brand-amber/5 rounded-2xl blur-3xl -z-10"></div>
-          <div className="relative w-full max-w-82.5 rounded-2xl overflow-hidden border border-white/5 hover:border-brand-orange/30 transition-all duration-700 ease-out p-1 bg-slate-900/40">
+          <div className="relative w-full max-w-105.5 md:max-w-86 rounded-2xl overflow-hidden border border-white/5 hover:border-brand-orange/30 transition-all duration-700 ease-out p-1 bg-slate-900/40">
             <img 
               src={data.avatarUrl || profileImg} 
               alt={data.name} 
@@ -123,7 +124,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        <div className="lg:col-span-7 flex flex-col gap-4">
+        <div className="lg:col-span-7 px-6 md:px-12 flex flex-col gap-4">
           <motion.h1 
             variants={slowSlideRight}
             className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight"
@@ -175,24 +176,24 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      <div className="w-full h-px bg-linear-to-r from-transparent via-white/10 to-transparent my-16"></div>
+      <div className="w-full h-1 bg-linear-to-r from-transparent via-white/10 to-transparent my-16"></div>
 
       <motion.div 
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        className="w-full flex flex-col items-center gap-2"
+        className="px-6 md:px-12 flex flex-col items-center gap-2"
       >
         <motion.h3 
           variants={slowSlideUp}
-          className="text-2xl sm:text-4xl font-extrabold text-white text-center tracking-tight"
+          className="text-2xl sm:text-5xl font-bold text-white text-center tracking-tight"
         >
           Delivering Measured Business Impact
         </motion.h3>
         
         <motion.p 
           variants={slowSlideUp}
-          className="text-xs sm:text-sm text-slate-400 text-center max-w-lg mx-auto leading-relaxed mb-4 font-light tracking-wide"
+          className="text-xs sm:text-lg text-slate-400 text-center max-w-lg mx-auto leading-relaxed mb-4 font-light tracking-wide"
         >
           Proven performance metrics reflecting years of specialized automation and scalable full-stack development.
         </motion.p>
@@ -236,24 +237,24 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      <div className="w-full h-px bg-linear-to-r from-transparent via-white/10 to-transparent my-16"></div>
+      <div className="w-full h-1 bg-linear-to-r from-transparent via-white/10 to-transparent my-16"></div>
 
       <motion.div 
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        className="w-full flex flex-col items-center gap-2"
+        className="px-6 md:px-12 flex flex-col items-center gap-2"
       >
         <motion.h3 
           variants={slowSlideUp}
-          className="text-2xl sm:text-4xl font-extrabold text-white text-center tracking-tight"
+          className="text-2xl sm:text-5xl font-bold text-white text-center tracking-tight"
         >
           Specialized Engineering Solutions
         </motion.h3>
         
         <motion.p 
           variants={slowSlideUp}
-          className="text-xs sm:text-sm text-slate-400 text-center max-w-lg mx-auto leading-relaxed mb-4 font-light tracking-wide"
+          className="text-xs sm:text-lg text-slate-400 text-center max-w-lg mx-auto leading-relaxed mb-4 font-light tracking-wide"
         >
           Customized technical execution focused on workflow acceleration and system scalability.
         </motion.p>
@@ -294,24 +295,24 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      <div className="w-full h-px bg-linear-to-r from-transparent via-white/10 to-transparent my-16"></div>
+      <div className="w-full h-1 bg-linear-to-r  via-white/10 to-transparent my-16"></div>
 
       <motion.div 
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        className="w-full flex flex-col items-center gap-2"
+        className="px-6 md:px-12 flex flex-col items-center gap-2"
       >
         <motion.h3 
           variants={slowSlideUp}
-          className="text-2xl sm:text-3xl font-extrabold text-white text-center tracking-tight"
+          className="text-2xl sm:text-5xl font-bold text-white text-center tracking-tight"
         >
           The Enterprise Advantage
         </motion.h3>
         
         <motion.p 
           variants={slowSlideUp}
-          className="text-xs sm:text-sm text-slate-400 text-center max-w-lg mx-auto leading-relaxed mb-4 font-light tracking-wide"
+          className="text-xs sm:text-lg text-slate-400 text-center max-w-lg mx-auto leading-relaxed mb-4 font-light tracking-wide"
         >
           Why global clients and companies trust our automated development blueprints.
         </motion.p>
@@ -357,7 +358,7 @@ export default function Hero() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="w-full mt-24 border-t border-b border-white/5 py-4 overflow-hidden relative"
+        className="px-6 md:px-12 mt-24 border-t border-b border-white/5 py-4 overflow-hidden relative"
       >
         <div className="absolute left-0 top-0 h-full w-20 bg-linear-to-r from-brand-dark to-transparent z-10"></div>
         <div className="absolute right-0 top-0 h-full w-20 bg-linear-to-l from-brand-dark to-transparent z-10"></div>
@@ -374,6 +375,7 @@ export default function Hero() {
           ))}
         </motion.div>
       </motion.div>
+      <Footer />
     </section>
   );
 }
