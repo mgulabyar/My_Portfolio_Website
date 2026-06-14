@@ -58,26 +58,26 @@ export default function Expertise() {
 
           <motion.div 
             variants={slowSlideLeft}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4 border-t border-white/5 pt-6"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4 border-t border-white/5 pt-6"
           >
             <div className="flex flex-col gap-1">
-              <span className="text-sm font-bold text-white uppercase tracking-wider">Spreadsheet Architecture</span>
-              <span className="text-xs text-slate-400 font-light leading-relaxed">High-fidelity custom VBA script engineering, complex data modeling, and automated calculations.</span>
+              <span className="text-xs font-semibold text-white uppercase tracking-wider">Full Stack Web Development</span>
+              {/* <span className="text-xs text-slate-400 font-light leading-relaxed">High-fidelity custom VBA script engineering, complex data modeling, and automated calculations.</span> */}
             </div>
             
-            <div className="flex flex-col gap-1">
-              <span className="text-sm font-bold text-white uppercase tracking-wider">Cross-Platform Add-ins</span>
-              <span className="text-xs text-slate-400 font-light leading-relaxed">Web-powered Microsoft Office integrations for Outlook, Word, and Excel using Office.js.</span>
+            <div className="flex">
+              <span className="text-xs font-semibold text-white uppercase tracking-wider">Cross-Platform Office Add-ins</span>
+              {/* <span className="text-xs text-slate-400 font-light leading-relaxed">Web-powered Microsoft Office integrations for Outlook, Word, and Excel using Office.js.</span> */}
             </div>
 
-            <div className="flex flex-col gap-1">
-              <span className="text-sm font-bold text-white uppercase tracking-wider">Workspace Automation</span>
-              <span className="text-xs text-slate-400 font-light leading-relaxed">Tailored Google Workspace Apps Script additions and automations for Gmail, Sheets, and Docs.</span>
+            <div className="flex">
+              <span className="text-xs font-semibold text-white uppercase tracking-wider">Google Workspace Automation</span>
+              {/* <span className="text-xs text-slate-400 font-light leading-relaxed">Tailored Google Workspace Apps Script additions and automations for Gmail, Sheets, and Docs.</span> */}
             </div>
 
-            <div className="flex flex-col gap-1">
-              <span className="text-sm font-bold text-white uppercase tracking-wider">AI API Integrations</span>
-              <span className="text-xs text-slate-400 font-light leading-relaxed">Connecting advanced OpenAI GPT intelligence models seamlessly with secure custom cloud servers.</span>
+            <div className="flex">
+              <span className="text-xs font-semibold text-white uppercase tracking-wider">AI API Integrations</span>
+              {/* <span className="text-xs text-slate-400 font-light leading-relaxed">Connecting advanced OpenAI GPT intelligence models seamlessly with secure custom cloud servers.</span> */}
             </div>
           </motion.div>
         </div>
@@ -86,12 +86,12 @@ export default function Expertise() {
           variants={slowSlideRight}
           className="lg:col-span-5 flex justify-center items-center relative"
         >
-          <div className="absolute inset-0 bg-brand-orange/5 rounded-3xl blur-3xl -z-10 animate-pulse"></div>
-          <div className="relative w-full max-w-82.5 rounded-2xl overflow-hidden border border-white/5 hover:border-brand-orange/30 transition-all duration-700 ease-out p-1 bg-slate-900/40">
+          <div className="absolute -z-10 animate-pulse"></div>
+          <div className="">
             <img 
               src={expertiseImg} 
               alt="Expertise and Skills" 
-              className="w-full h-auto object-contain brightness-[0.95]" 
+              className="w-full h-auto" 
               onError={(e) => {
                 e.currentTarget.src = "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTV6ajZqYml2ajIxdXpqdjEydzhwOHp3dHYzajZpOXMxbzh0bXZ4cyZjdD1n/dhovVfEDgq864Tq9O0/giphy.gif";
               }}
