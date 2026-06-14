@@ -77,7 +77,7 @@ export default function Contact() {
       <motion.div 
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.2 }}
         className="w-full flex flex-col gap-12"
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-slate-900/30 border border-white/5 rounded-3xl p-8 md:p-12 backdrop-blur-sm relative overflow-hidden shadow-glow-soft">
