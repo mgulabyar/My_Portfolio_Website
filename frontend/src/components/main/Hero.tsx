@@ -128,7 +128,7 @@ export default function Hero() {
             variants={slowSlideRight}
             className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight"
           >
-            I am <br />
+           Hi, I am <br />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-orange via-brand-orange to-brand-amber">
               {data.name}
             </span>
