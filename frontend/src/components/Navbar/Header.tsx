@@ -9,25 +9,28 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-
       const scrollPos = window.scrollY + 200;
       const sections = ['home', 'about', 'expertise', 'projects', 'contact'];
       
+      let currentSection = 'home';
       for (const id of sections) {
         const el = document.getElementById(id);
         if (el) {
           const top = el.offsetTop;
           const height = el.offsetHeight;
           if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(id);
+            currentSection = id;
             break;
           }
         }
+      }
+
+      setActiveSection(prev => prev !== currentSection ? currentSection : prev);
+
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
       }
     };
 
