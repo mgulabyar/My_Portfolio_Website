@@ -1,5 +1,4 @@
-
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Code, Cpu, ShieldCheck, Zap, Award, Users, Activity, Sparkles } from 'lucide-react';
@@ -112,7 +111,7 @@ export default function Hero() {
           className="lg:col-span-5 flex justify-center relative group"
         >
           <div className="absolute inset-0 bg-linear-to-tr from-brand-orange/10 to-brand-amber/5 rounded-2xl blur-3xl -z-10"></div>
-          <div className="relative w-full max-w-105.5 md:max-w-86 rounded-2xl overflow-hidden border border-white/5 hover:border-brand-orange/30 transition-all duration-700 ease-out p-1 bg-slate-900/40">
+          <div className="relative w-full max-w-84 md:max-w-86 rounded-2xl overflow-hidden border border-white/5 hover:border-brand-orange/30 transition-all duration-700 ease-out p-1 bg-slate-900/40">
             <img 
               src={data.avatarUrl || profileImg} 
               alt={data.name} 
@@ -198,7 +197,7 @@ export default function Hero() {
           Proven performance metrics reflecting years of specialized automation and scalable full-stack development.
         </motion.p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full mt-4">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-6 w-full mt-4">
           <motion.div 
             variants={cardLeft}
             className="p-6 rounded-xl bg-slate-900/40 border border-white/5 hover:border-brand-orange/30 transition-all duration-500 flex flex-col items-center gap-2 text-center group cursor-pointer"
@@ -259,7 +258,7 @@ export default function Hero() {
           Customized technical execution focused on workflow acceleration and system scalability.
         </motion.p>
 
-        <div className="grid grid-cols-1 items-center md:grid-cols-3 gap-6 w-full mt-4">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6 w-full mt-4">
           <motion.div 
             variants={cardLeft}
             className="p-6 rounded-xl bg-slate-900/40 border border-white/5 hover:border-brand-orange/30 transition-all duration-500 flex flex-col items-center text-center gap-3 group cursor-pointer"
@@ -295,7 +294,7 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      <div className="w-full h-1 bg-linear-to-r  via-white/10 to-transparent my-16"></div>
+      <div className="w-full h-1 bg-linear-to-r via-white/10 to-transparent my-16"></div>
 
       <motion.div 
         initial="hidden"
@@ -317,7 +316,7 @@ export default function Hero() {
           Why global clients and companies trust our automated development blueprints.
         </motion.p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-4">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6 w-full mt-4">
           <motion.div 
             variants={cardLeft}
             className="p-6 rounded-xl bg-slate-900/40 border border-white/5 hover:border-brand-orange/30 transition-all duration-500 flex flex-col gap-2 text-center items-center group cursor-pointer"
