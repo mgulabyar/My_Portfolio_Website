@@ -85,10 +85,10 @@ export default function Footer() {
         <div className="md:col-span-2 flex flex-col gap-3">
           <h4 className="text-sm font-extrabold text-white uppercase tracking-wider">Google add ons</h4>
           <ul className="flex flex-col gap-2 text-sm text-slate-400">
-            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Google Sheets Add-ons</li>
-            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Google Slides Add-ons</li>
-            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Google Docs Add-ons</li>
-            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Gmail Add-ons</li>
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Gmail Add ons</li>
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Google Docs Add on</li>
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Google Sheets Add on</li>
+            <li className="hover:text-brand-orange transition-colors duration-200 cursor-pointer">Google forms Addons</li>
           </ul>
         </div>
 
@@ -120,7 +120,7 @@ export default function Footer() {
         </p>
         <button 
           onClick={scrollToTop}
-          className="p-2.5 rounded-full bg-white/5 border border-white/5 hover:bg-brand-orange hover:border-brand-orange/30 text-slate-400 hover:text-white transition-all duration-300 cursor-pointer shadow-glow-soft hover:scale-105"
+          className="p-2.5 rounded-full bg-white/5 border border-white/5 hover:border-brand-orange/30 text-slate-400 hover:text-brand-orange transition-all duration-300 cursor-pointer shadow-glow-soft hover:scale-105"
         >
           <ArrowUp className="h-4 w-4" />
         </button>
