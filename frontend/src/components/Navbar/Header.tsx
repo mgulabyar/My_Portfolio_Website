@@ -1,289 +1,60 @@
-
-// import  { useState, useEffect } from 'react';
-// import { motion, AnimatePresence } from 'framer-motion';
-// import { Menu, X } from 'lucide-react';
-
-// export default function Header() {
-//   const [isOpen, setIsOpen] = useState(false);
-//   const [isScrolled, setIsScrolled] = useState(false);
-//   const [activeSection, setActiveSection] = useState('home');
-
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       if (window.scrollY > 50) {
-//         setIsScrolled(true);
-//       } else {
-//         setIsScrolled(false);
-//       }
-
-//       const scrollPos = window.scrollY + 200;
-//       const sections = ['home', 'about', 'expertise', 'projects', 'contact'];
-      
-//       for (const id of sections) {
-//         const el = document.getElementById(id);
-//         if (el) {
-//           const top = el.offsetTop;
-//           const height = el.offsetHeight;
-//           if (scrollPos >= top && scrollPos < top + height) {
-//             setActiveSection(id);
-//             break;
-//           }
-//         }
-//       }
-//     };
-
-//     window.addEventListener('scroll', handleScroll);
-//     return () => window.removeEventListener('scroll', handleScroll);
-//   }, []);
-
-//   const headerVariants = {
-//     hidden: { opacity: 0, y: -100 },
-//     visible: { 
-//       opacity: 1, 
-//       y: 0,
-//       transition: { duration: 1.6, ease: [0.16, 1, 0.3, 1] as const }
-//     }
-//   };
-
-//   const logoVariants = {
-//     hidden: { opacity: 0, x: -100 },
-//     visible: { 
-//       opacity: 1, 
-//       x: 0,
-//       transition: { duration: 1.8, ease: [0.16, 1, 0.3, 1] as const }
-//     }
-//   };
-
-//   const navVariants = {
-//     hidden: { opacity: 0, y: -20 },
-//     visible: { 
-//       opacity: 1, 
-//       y: 0,
-//       transition: { duration: 1.8, ease: [0.16, 1, 0.3, 1] as const }
-//     }
-//   };
-
-//   const buttonVariants = {
-//     hidden: { opacity: 0, x: 100 },
-//     visible: { 
-//       opacity: 1, 
-//       x: 0,
-//       transition: { duration: 1.8, ease: [0.16, 1, 0.3, 1] as const }
-//     }
-//   };
-
-//   const sidebarVariants = {
-//     closed: { opacity: 0, x: "100%" },
-//     open: { 
-//       opacity: 1, 
-//       x: 0,
-//       transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }
-//     }
-//   };
-
-//   const listContainerVariants = {
-//     closed: { transition: { staggerChildren: 0.05, staggerDirection: -1 } },
-//     open: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } }
-//   };
-
-//   const linkItemVariants = {
-//     closed: { opacity: 0, x: 50 },
-//     open: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" as const } }
-//   };
-
-//   return (
-//     <motion.header 
-//       variants={headerVariants}
-//       initial="hidden"
-//       animate="visible"
-//       style={{ opacity: 0 }}
-//       className={`fixed top-0 left-0 w-full z-50 border-b border-white/5 transition-all duration-500 flex items-center justify-between ${
-//         isScrolled 
-//           ? 'bg-brand-dark/95 backdrop-blur-lg py-3 px-6 md:px-12 shadow-2xl' 
-//           : 'bg-brand-dark/50 backdrop-blur-md py-5 px-6 md:px-12'
-//       }`}
-//     >
-//       <motion.div 
-//         variants={logoVariants}
-//         className="flex items-center gap-2 cursor-pointer group select-none"
-//       >
-//         <svg viewBox="0 0 24 24" className="h-6 w-6 text-brand-orange filter drop-shadow-[0_0_6px_#FF5500] transition-transform duration-700 group-hover:rotate-180" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-//           <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2" />
-//           <polyline points="12 22 12 12" />
-//           <polyline points="12 12 22 8.5" />
-//           <polyline points="12 12 2 8.5" />
-//           <polyline points="22 8.5 12 2 2 8.5 12 12" />
-//         </svg>
-//         <span className="text-2xl font-black tracking-wider text-white">
-//           Gulab<span className="text-brand-orange group-hover:text-brand-amber transition-colors duration-300">Yar</span>
-//         </span>
-//       </motion.div>
-
-//       <motion.nav 
-//         variants={navVariants}
-//         className="hidden md:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2"
-//       >
-//         {['Home', 'About', 'Expertise', 'Projects'].map((item, index) => (
-//           <a 
-//             key={index} 
-//             href={`#${item.toLowerCase()}`}
-//             className={`text-sm font-medium transition-colors duration-300 relative group py-1 ${
-//               activeSection === item.toLowerCase() ? 'text-brand-orange' : 'text-slate-300 hover:text-brand-orange'
-//             }`}
-//           >
-//             {item}
-//             <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-orange transition-all duration-300 ${
-//               activeSection === item.toLowerCase() ? 'w-full shadow-glow-orange' : 'w-0 group-hover:w-full shadow-glow-orange'
-//             }`}></span>
-//           </a>
-//         ))}
-//       </motion.nav>
-
-//       <motion.div 
-//         variants={buttonVariants}
-//         className="hidden md:flex items-center"
-//       >
-//         <a 
-//           href="#contact"
-//           className="relative overflow-hidden px-5 py-2 rounded-lg border border-brand-orange text-white font-bold text-xs tracking-wider uppercase transition-all duration-500 flex items-center justify-center group cursor-pointer hover:shadow-glow-orange"
-//         >
-//           <span className="absolute inset-0 w-full h-full bg-linear-to-r from-brand-orange to-brand-amber -z-10 transition-transform duration-500 -translate-x-full group-hover:translate-x-0 ease-out"></span>
-//           <span className="z-10">Contact</span>
-//         </a>
-//       </motion.div>
-
-//       <div className="relative h-6 w-6 z-50 md:hidden">
-//         <button 
-//           onClick={() => setIsOpen(!isOpen)}
-//           className="absolute inset-0 text-slate-300 hover:text-brand-orange transition-colors duration-300 focus:outline-none flex items-center justify-center cursor-pointer"
-//         >
-//           <AnimatePresence mode="wait">
-//             {isOpen ? (
-//               <motion.div 
-//                 key="close" 
-//                 initial={{ rotate: -180, opacity: 0 }} 
-//                 animate={{ rotate: 0, opacity: 1 }} 
-//                 exit={{ rotate: 180, opacity: 0 }} 
-//                 transition={{ duration: 0.5, ease: "easeInOut" }}
-//                 className="flex items-center justify-center"
-//               >
-//                 <X className="h-6 w-6 text-brand-orange" />
-//               </motion.div>
-//             ) : (
-//               <motion.div 
-//                 key="menu" 
-//                 initial={{ rotate: 180, opacity: 0 }} 
-//                 animate={{ rotate: 0, opacity: 1 }} 
-//                 exit={{ rotate: -180, opacity: 0 }} 
-//                 transition={{ duration: 0.5, ease: "easeInOut" }}
-//                 className="flex items-center justify-center"
-//               >
-//                 <Menu className="h-6 w-6" />
-//               </motion.div>
-//             )}
-//           </AnimatePresence>
-//         </button>
-//       </div>
-
-//       <AnimatePresence>
-//         {isOpen && (
-//           <motion.div 
-//             variants={sidebarVariants}
-//             initial="closed"
-//             animate="open"
-//             exit="closed"
-//             className="fixed top-0 right-0 w-64 h-screen bg-brand-dark/95 border-l border-white/5 z-40 p-8 pt-28 flex flex-col gap-6 shadow-2xl md:hidden"
-//           >
-//             <motion.div 
-//               variants={listContainerVariants} 
-//               className="flex flex-col gap-6"
-//             >
-//               {['Home', 'About', 'Expertise', 'Projects', 'Contact'].map((item, index) => (
-//                 <motion.div key={index} variants={linkItemVariants}>
-//                   <a 
-//                     href={`#${item.toLowerCase()}`}
-//                     onClick={() => setIsOpen(false)}
-//                     className={`text-sm font-semibold tracking-widest uppercase transition-colors duration-300 py-2 block border-b border-white/5 hover:text-brand-orange hover:pl-3 ${
-//                       activeSection === item.toLowerCase() ? 'text-brand-orange pl-3' : 'text-slate-300'
-//                     }`}
-//                   >
-//                     {item}
-//                   </a>
-//                 </motion.div>
-//               ))}
-//             </motion.div>
-//           </motion.div>
-//         )}
-//       </AnimatePresence>
-//     </motion.header>
-//   );
-// }
-
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowUpRight, Code, Cpu, Zap, Award, Users } from 'lucide-react';
-import profileImg from '../../assets/profile.png';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
 
-export default function Hero() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [profile, setProfile] = useState<any>(null);
+export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/profile')
-      .then(res => res.json())
-      .then(data => {
-        if (data.success && data.data) {
-          setProfile(data.data);
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+
+      const scrollPos = window.scrollY + 200;
+      const sections = ['home', 'about', 'expertise', 'projects', 'contact'];
+      
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            setActiveSection(id);
+            break;
+          }
         }
-      })
-      .catch(() => {});
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const defaultProfile = {
-    name: "Muhammad Gulab Yar",
-    title: "Full-Stack Web Developer & Automation Expert",
-    bio: "I am a professional Full-Stack Developer with 4 years of solid industry experience specializing in the MERN stack, Python, ASP.NET Core, and Angular. My core expertise lies in designing highly scalable custom web architectures, complex MS Office Add-ins built with Office.js, Google Workspace Add-ons, and dynamic VBA/Macros. I specialize in bridging the gap between secure cloud databases and automated workflows, integrating smart AI APIs, and delivering fast, automated business ecosystems.",
-    email: "mgulabyaarmgulabyaar@gmail.com",
-    resumeUrl: "https://example.com/assets/gulab-yar-resume.pdf",
-    contactUrl: "#contact"
-  };
-
-  const data = profile || defaultProfile;
-
-  const techStack = [
-    "React", "Node.js", "Express", "MongoDB", "TypeScript", 
-    "Python", "VBA Macros", "Office.js", "Apps Script", "OpenAI API", 
-    "PostgreSQL", "Next.js", "Tailwind CSS", "Azure", "GitHub CI/CD"
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2, delayChildren: 0.3 }
-    }
-  };
-
-  const slowSlideLeft = {
-    hidden: { opacity: 0, x: -70 },
+  const headerVariants = {
+    hidden: { opacity: 0, y: -100 },
     visible: { 
       opacity: 1, 
-      x: 0,
+      y: 0,
       transition: { duration: 1.6, ease: [0.16, 1, 0.3, 1] as const }
     }
   };
 
-  const slowSlideRight = {
-    hidden: { opacity: 0, x: 70 },
+  const logoVariants = {
+    hidden: { opacity: 0, x: -100 },
     visible: { 
       opacity: 1, 
       x: 0,
-      transition: { duration: 1.6, ease: [0.16, 1, 0.3, 1] as const }
+      transition: { duration: 1.8, ease: [0.16, 1, 0.3, 1] as const }
     }
   };
 
-  const slowSlideUp = {
-    hidden: { opacity: 0, y: 50 },
+  const navVariants = {
+    hidden: { opacity: 0, y: -20 },
     visible: { 
       opacity: 1, 
       y: 0,
@@ -291,190 +62,157 @@ export default function Hero() {
     }
   };
 
-  const cardLeft = {
-    hidden: { opacity: 0, x: -100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 1.5, ease: [0.16, 1, 0.3, 1] as const } }
-  };
-
-  const cardLeftCenter = {
-    hidden: { opacity: 0, x: -40 },
-    visible: { opacity: 1, x: 0, transition: { duration: 1.5, ease: [0.16, 1, 0.3, 1] as const } }
-  };
-
-  const cardRightCenter = {
-    hidden: { opacity: 0, x: 40 },
-    visible: { opacity: 1, x: 0, transition: { duration: 1.5, ease: [0.16, 1, 0.3, 1] as const } }
-  };
-
-  const cardRight = {
+  const buttonVariants = {
     hidden: { opacity: 0, x: 100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 1.5, ease: [0.16, 1, 0.3, 1] as const } }
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { duration: 1.8, ease: [0.16, 1, 0.3, 1] as const }
+    }
   };
 
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 2 } }
+  const sidebarVariants = {
+    closed: { opacity: 0, x: "100%" },
+    open: { 
+      opacity: 1, 
+      x: 0,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }
+    }
+  };
+
+  const listContainerVariants = {
+    closed: { transition: { staggerChildren: 0.05, staggerDirection: -1 } },
+    open: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } }
+  };
+
+  const linkItemVariants = {
+    closed: { opacity: 0, x: 50 },
+    open: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" as const } }
   };
 
   return (
-    <section id="home" className="pt-32 pb-8 flex flex-col">
+    <motion.header 
+      variants={headerVariants}
+      initial="hidden"
+      animate="visible"
+      className={`fixed top-0 left-0 w-full z-50 border-b border-white/5 transition-all duration-500 flex items-center justify-between ${
+        isScrolled 
+          ? 'bg-brand-dark/95 backdrop-blur-lg py-3 px-6 md:px-12 shadow-2xl' 
+          : 'bg-brand-dark/50 backdrop-blur-md py-5 px-6 md:px-12'
+      }`}
+    >
       <motion.div 
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
-        className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full"
+        variants={logoVariants}
+        className="flex items-center gap-2 cursor-pointer group select-none"
       >
-        <motion.div 
-          variants={slowSlideLeft}
-          className="lg:col-span-5 flex justify-center relative group"
+        <svg viewBox="0 0 24 24" className="h-6 w-6 text-brand-orange filter drop-shadow-[0_0_6px_#FF5500] transition-transform duration-700 group-hover:rotate-180" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2" />
+          <polyline points="12 22 12 12" />
+          <polyline points="12 12 22 8.5" />
+          <polyline points="12 12 2 8.5" />
+          <polyline points="22 8.5 12 2 2 8.5 12 12" />
+        </svg>
+        <span className="text-2xl font-black tracking-wider text-white">
+          Gulab<span className="text-brand-orange group-hover:text-brand-amber transition-colors duration-300">Yar</span>
+        </span>
+      </motion.div>
+
+      <motion.nav 
+        variants={navVariants}
+        className="hidden md:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2"
+      >
+        {['Home', 'About', 'Expertise', 'Projects'].map((item, index) => (
+          <a 
+            key={index} 
+            href={`#${item.toLowerCase()}`}
+            className={`text-sm font-medium transition-colors duration-300 relative group py-1 ${
+              activeSection === item.toLowerCase() ? 'text-brand-orange' : 'text-slate-300 hover:text-brand-orange'
+            }`}
+          >
+            {item}
+            <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-orange transition-all duration-300 ${
+              activeSection === item.toLowerCase() ? 'w-full shadow-glow-orange' : 'w-0 group-hover:w-full shadow-glow-orange'
+            }`}></span>
+          </a>
+        ))}
+      </motion.nav>
+
+      <motion.div 
+        variants={buttonVariants}
+        className="hidden md:flex items-center"
+      >
+        <a 
+          href="#contact"
+          className="relative overflow-hidden px-5 py-2 rounded-lg border border-brand-orange text-white font-bold text-xs tracking-wider uppercase transition-all duration-500 flex items-center justify-center group cursor-pointer hover:shadow-glow-orange"
         >
-          <div className="absolute inset-0 bg-linear-to-tr from-brand-orange/20 to-brand-amber/10 rounded-2xl blur-3xl animate-pulse -z-10"></div>
-          <div className="relative w-full max-w-82.5 rounded-2xl overflow-hidden border border-white/10 hover:border-brand-orange/40 shadow-glow-soft hover:shadow-glow-orange transition-all duration-700 ease-out p-1.5 bg-slate-900/40">
-            <img 
-              src={data.avatarUrl || profileImg} 
-              alt={data.name} 
-              className="w-full h-auto object-cover rounded-xl filter brightness-[0.95] group-hover:brightness-100 transition-all duration-700" 
-              onError={(e) => {
-                e.currentTarget.src = profileImg;
-              }}
-            />
-          </div>
-        </motion.div>
+          <span className="absolute inset-0 w-full h-full bg-linear-to-r from-brand-orange/20 to-brand-amber/20 -z-10 transition-transform duration-500 scale-x-0 group-hover:scale-x-100 origin-center ease-out"></span>
+          <span className="z-10">Contact</span>
+        </a>
+      </motion.div>
 
-        <div className="lg:col-span-7 flex flex-col gap-4">
-          <motion.h1 
-            variants={slowSlideRight}
-            className="text-4xl sm:text-5xl font-black text-white leading-tight tracking-tight"
-          >
-            I am <br />
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-orange via-brand-orange to-brand-amber filter drop-shadow-[0_0_12px_rgba(255,85,0,0.15)]">
-              {data.name}
-            </span>
-          </motion.h1>
+      <div className="relative h-6 w-6 z-50 md:hidden">
+        <button 
+          onClick={() => setIsOpen(!isOpen)}
+          className="absolute inset-0 text-slate-300 hover:text-brand-orange transition-colors duration-300 focus:outline-none flex items-center justify-center cursor-pointer"
+        >
+          <AnimatePresence mode="wait">
+            {isOpen ? (
+              <motion.div 
+                key="close" 
+                initial={{ rotate: -180, opacity: 0 }} 
+                animate={{ rotate: 0, opacity: 1 }} 
+                exit={{ rotate: 180, opacity: 0 }} 
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="flex items-center justify-center"
+              >
+                <X className="h-6 w-6 text-brand-orange" />
+              </motion.div>
+            ) : (
+              <motion.div 
+                key="menu" 
+                initial={{ rotate: 180, opacity: 0 }} 
+                animate={{ rotate: 0, opacity: 1 }} 
+                exit={{ rotate: -180, opacity: 0 }} 
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="flex items-center justify-center"
+              >
+                <Menu className="h-6 w-6" />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </button>
+      </div>
 
-          <motion.h2
-            variants={slowSlideRight}
-            className="text-lg sm:text-xl font-bold text-slate-200 tracking-wide"
-          >
-            {data.title}
-          </motion.h2>
-
-          <motion.p 
-            variants={slowSlideUp}
-            className="text-sm sm:text-base text-slate-400 max-w-xl leading-relaxed"
-          >
-            {data.bio}
-          </motion.p>
-
+      <AnimatePresence>
+        {isOpen && (
           <motion.div 
-            variants={slowSlideUp}
-            className="flex flex-wrap items-center gap-4 mt-4"
+            variants={sidebarVariants}
+            initial="closed"
+            animate="open"
+            exit="closed"
+            className="fixed top-0 right-0 w-64 h-screen bg-brand-dark/95 border-l border-white/5 z-40 p-8 pt-28 flex flex-col gap-6 shadow-2xl md:hidden"
           >
-            {/* Left-to-Right Shimmer Wave */}
-            <a 
-              href={data.contactUrl || "#contact"}
-              className="relative overflow-hidden px-6 py-2.5 rounded-lg border border-brand-orange text-white font-bold text-sm tracking-wide transition-all duration-500 flex items-center gap-2 group cursor-pointer hover:shadow-glow-orange hover:-translate-y-0.5"
+            <motion.div 
+              variants={listContainerVariants} 
+              className="flex flex-col gap-6"
             >
-              <span className="absolute inset-0 w-full h-full bg-linear-to-r from-brand-orange/20 to-brand-amber/20 -z-10 transition-transform duration-500 -translate-x-full group-hover:translate-x-0 ease-out"></span>
-              <span className="z-10">Hire Me Today</span>
-              <ArrowUpRight className="h-4 w-4 z-10 group-hover:translate-x-0.5 group-hover:translate-y-[-0.5px] transition-transform duration-300" />
-            </a>
-            
-            {/* Right-to-Left Shimmer Wave */}
-            <a 
-              href={`mailto:${data.email}`}
-              className="relative overflow-hidden px-6 py-2.5 rounded-lg border border-white/10 text-white font-bold text-sm tracking-wide transition-all duration-500 flex items-center gap-2 group cursor-pointer hover:border-brand-orange/30 hover:-translate-y-0.5"
-            >
-              <span className="absolute inset-0 w-full h-full bg-linear-to-r from-brand-orange/20 to-brand-amber/20 -z-10 transition-transform duration-500 translate-x-full group-hover:translate-x-0 ease-out"></span>
-              <span className="z-10">Schedule Call</span>
-              <ArrowUpRight className="h-4 w-4 z-10 group-hover:translate-x-0.5 group-hover:translate-y-[-0.5px] transition-transform duration-300" />
-            </a>
+              {['Home', 'About', 'Expertise', 'Projects', 'Contact'].map((item, index) => (
+                <motion.div key={index} variants={linkItemVariants}>
+                  <a 
+                    href={`#${item.toLowerCase()}`}
+                    onClick={() => setIsOpen(false)}
+                    className={`text-sm font-semibold tracking-widest uppercase transition-colors duration-300 py-2 block border-b border-white/5 hover:text-brand-orange hover:pl-3 ${
+                      activeSection === item.toLowerCase() ? 'text-brand-orange pl-3' : 'text-slate-300'
+                    }`}
+                  >
+                    {item}
+                  </a>
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
-        </div>
-      </motion.div>
-
-      <motion.div 
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
-        className="w-full mt-16 flex flex-col items-center gap-2"
-      >
-        <motion.h3 
-          variants={slowSlideUp}
-          className="text-2xl sm:text-3xl font-extrabold text-white text-center tracking-tight"
-        >
-          Delivering Measured Business Impact
-        </motion.h3>
-        
-        <motion.p 
-          variants={slowSlideUp}
-          className="text-xs sm:text-sm text-slate-400 text-center max-w-lg mx-auto leading-relaxed mb-4"
-        >
-          Proven performance metrics reflecting years of specialized automation and scalable full-stack development.
-        </motion.p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full mt-4">
-          <motion.div 
-            variants={cardLeft}
-            className="p-6 rounded-xl bg-slate-900/40 border border-white/5 shadow-glow-soft hover:border-brand-orange/30 hover:shadow-glow-orange transition-all duration-500 flex flex-col items-center gap-2 text-center group cursor-pointer"
-          >
-            <Award className="h-8 w-8 text-brand-orange group-hover:scale-110 transition-transform duration-300" />
-            <span className="text-xl font-black text-white">04+ Years</span>
-            <span className="text-[10px] text-slate-400 uppercase tracking-widest font-semibold">Tech Journey</span>
-          </motion.div>
-
-          <motion.div 
-            variants={cardLeftCenter}
-            className="p-6 rounded-xl bg-slate-900/40 border border-white/5 shadow-glow-soft hover:border-brand-orange/30 hover:shadow-glow-orange transition-all duration-500 flex flex-col items-center gap-2 text-center group cursor-pointer"
-          >
-            <Code className="h-8 w-8 text-brand-orange group-hover:scale-110 transition-transform duration-300" />
-            <span className="text-xl font-black text-white">50+ Apps</span>
-            <span className="text-[10px] text-slate-400 uppercase tracking-widest font-semibold">Built Worldwide</span>
-          </motion.div>
-
-          <motion.div 
-            variants={cardRightCenter}
-            className="p-6 rounded-xl bg-slate-900/40 border border-white/5 shadow-glow-soft hover:border-brand-orange/30 hover:shadow-glow-orange transition-all duration-500 flex flex-col items-center gap-2 text-center group cursor-pointer"
-          >
-            <Cpu className="h-8 w-8 text-brand-orange group-hover:scale-110 transition-transform duration-300" />
-            <span className="text-xl font-black text-white">10k+ Hours</span>
-            <span className="text-[10px] text-slate-400 uppercase tracking-widest font-semibold">Manual Work Saved</span>
-          </motion.div>
-
-          <motion.div 
-            variants={cardRight}
-            className="p-6 rounded-xl bg-slate-900/40 border border-white/5 shadow-glow-soft hover:border-brand-orange/30 hover:shadow-glow-orange transition-all duration-500 flex flex-col items-center gap-2 text-center group cursor-pointer"
-          >
-            <Users className="h-8 w-8 text-brand-orange group-hover:scale-110 transition-transform duration-300" />
-            <span className="text-xl font-black text-white">99% Client</span>
-            <span className="text-[10px] text-slate-400 uppercase tracking-widest font-semibold">Satisfaction & Trust</span>
-          </motion.div>
-        </div>
-      </motion.div>
-
-      <motion.div 
-        variants={fadeIn}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false }}
-        className="w-full mt-16 border-t border-b border-white/5 py-4 overflow-hidden relative"
-      >
-        <div className="absolute left-0 top-0 h-full w-20 bg-linear-to-r from-brand-dark to-transparent z-10"></div>
-        <div className="absolute right-0 top-0 h-full w-20 bg-linear-to-l from-brand-dark to-transparent z-10"></div>
-        <motion.div 
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ ease: "linear", duration: 30, repeat: Infinity }}
-          className="flex whitespace-nowrap gap-12 w-max"
-        >
-          {[...techStack, ...techStack].map((tech, index) => (
-            <div key={index} className="flex items-center gap-2">
-              <Zap className="h-3.5 w-3.5 text-brand-orange filter drop-shadow-[0_0_4px_#FF5500]" />
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-300 select-none">{tech}</span>
-            </div>
-          ))}
-        </motion.div>
-      </motion.div>
-    </section>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 }
