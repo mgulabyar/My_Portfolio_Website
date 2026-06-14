@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Sparkles, CheckCircle2 } from 'lucide-react';
-import aboutGif from '../../assets/about.gif';
+import aboutGif from '../../assets/about.png';
 
 export default function About() {
   const containerVariants = {
