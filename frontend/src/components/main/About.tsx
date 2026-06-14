@@ -35,7 +35,7 @@ export default function About() {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full"
       >
         <div className="lg:col-span-7 flex flex-col gap-5">
