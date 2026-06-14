@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Code, Cpu,  Zap, Award, Users } from 'lucide-react';
+import { ArrowUpRight, Code, Cpu, Zap, Award, Users } from 'lucide-react';
 import profileImg from '../../assets/profile.png';
 
 export default function Hero() {
@@ -30,7 +30,7 @@ export default function Hero() {
   const data = profile || defaultProfile;
 
   const techStack = [
-    "ASP.NET Core", "Angular", "React", "Node.js", "Express", "MongoDB", "TypeScript", 
+    "React", "Node.js", "Express", "MongoDB", "TypeScript", 
     "Python", "VBA Macros", "Office.js", "Apps Script", "OpenAI API", 
     "PostgreSQL", "Next.js", "Tailwind CSS", "Azure", "GitHub CI/CD"
   ];
@@ -39,7 +39,7 @@ export default function Hero() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.4, delayChildren: 0.5 }
+      transition: { staggerChildren: 0.2, delayChildren: 0.3 }
     }
   };
 
@@ -126,7 +126,7 @@ export default function Hero() {
             variants={slowSlideRight}
             className="text-4xl sm:text-5xl font-black text-white leading-tight tracking-tight"
           >
-           Hi, I am <br />
+            I am <br />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-orange via-brand-orange to-brand-amber filter drop-shadow-[0_0_12px_rgba(255,85,0,0.15)]">
               {data.name}
             </span>
@@ -143,18 +143,18 @@ export default function Hero() {
             variants={slowSlideUp}
             className="text-sm sm:text-base text-slate-400 max-w-xl leading-relaxed"
           >
-            I am a professional Full-Stack Developer with 4 years of solid industry experience specializing in the MERN stack, Python, ASP.NET Core, and Angular. My core expertise lies in designing highly scalable custom web architectures, complex MS Office Add-ins built with Office.js, Google Workspace Add-ons, and dynamic VBA/Macros. I specialize in bridging the gap between secure cloud databases and automated workflows, integrating smart AI APIs, and delivering fast, automated business ecosystems.
+            {data.bio}
           </motion.p>
 
           <motion.div 
             variants={slowSlideUp}
-            className="flex flex-wrap items-center gap-4 mt-2"
+            className="flex flex-wrap items-center gap-4 mt-4"
           >
             <a 
               href={data.contactUrl || "#contact"}
               className="relative overflow-hidden px-6 py-2.5 rounded-lg border border-brand-orange text-white font-bold text-sm tracking-wide transition-all duration-500 flex items-center gap-2 group cursor-pointer hover:shadow-glow-orange hover:-translate-y-0.5"
             >
-              <span className="absolute inset-0 w-full h-full bg-linear-to-r from-brand-orange to-brand-amber -z-10 transition-transform duration-500 -translate-x-full group-hover:translate-x-0 ease-out"></span>
+              <span className="absolute inset-0 w-full h-full bg-linear-to-r from-brand-orange/20 to-brand-amber/20 -z-10 transition-transform duration-500 -translate-x-full group-hover:translate-x-0 ease-out"></span>
               <span className="z-10">Hire Me Today</span>
               <ArrowUpRight className="h-4 w-4 z-10 group-hover:translate-x-0.5 group-hover:translate-y-[-0.5px] transition-transform duration-300" />
             </a>
@@ -163,7 +163,7 @@ export default function Hero() {
               href={`mailto:${data.email}`}
               className="relative overflow-hidden px-6 py-2.5 rounded-lg border border-white/10 text-white font-bold text-sm tracking-wide transition-all duration-500 flex items-center gap-2 group cursor-pointer hover:border-brand-orange/30 hover:-translate-y-0.5"
             >
-              <span className="absolute inset-0 w-full h-full bg-linear-to-r from-brand-orange/20 to-brand-amber/20 -z-10 transition-transform duration-500 -translate-x-full group-hover:translate-x-0 ease-out"></span>
+              <span className="absolute inset-0 w-full h-full bg-linear-to-r from-brand-orange/20 to-brand-amber/20 -z-10 transition-transform duration-500 translate-x-full group-hover:translate-x-0 ease-out"></span>
               <span className="z-10">Schedule Call</span>
               <ArrowUpRight className="h-4 w-4 z-10 group-hover:translate-x-0.5 group-hover:translate-y-[-0.5px] transition-transform duration-300" />
             </a>
@@ -179,7 +179,7 @@ export default function Hero() {
       >
         <motion.h3 
           variants={slowSlideUp}
-          className="mt-4 text-2xl sm:text-4xl font-extrabold text-white text-center tracking-tigher"
+          className="text-2xl sm:text-3xl font-extrabold text-white text-center tracking-tight"
         >
           Delivering Measured Business Impact
         </motion.h3>
