@@ -105,7 +105,6 @@
 
 
 
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Code2, Cpu, Zap, Layers, Sparkles, ArrowUpRight } from 'lucide-react';
@@ -187,7 +186,7 @@ export default function Expertise() {
             className="text-3xl sm:text-4xl font-extrabold text-white leading-tight tracking-tight"
           >
             My Technical <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-orange to-brand-amber">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-orange via-brand-orange to-brand-amber">
               Expertise & Core Skills
             </span>
           </motion.h2>
@@ -233,7 +232,7 @@ export default function Expertise() {
           <img 
             src={expertiseImg} 
             alt="Expertise and Skills" 
-            className="w-full h-auto max-h-[420px] object-contain brightness-[0.95]" 
+            className="w-full  h-auto max-h-105 object-contain brightness-[0.95]" 
             onError={(e) => {
               e.currentTarget.src = "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTV6ajZqYml2ajIxdXpqdjEydzhwOHp3dHYzajZpOXMxbzh0bXZ4cyZjdD1n/dhovVfEDgq864Tq9O0/giphy.gif";
             }}
@@ -241,7 +240,7 @@ export default function Expertise() {
         </motion.div>
       </motion.div>
 
-      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent my-16"></div>
+      <div className="w-full h-1 bg-linear-to-r from-transparent via-white/10 to-transparent my-16"></div>
 
       <motion.div 
         variants={containerVariants}
@@ -264,7 +263,7 @@ export default function Expertise() {
             className="text-2xl sm:text-3xl font-extrabold text-white leading-tight tracking-tight"
           >
             MS Office 365 <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-amber">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-orange to-brand-amber">
               Add-ins Engineering
             </span>
           </motion.h3>
@@ -281,7 +280,7 @@ export default function Expertise() {
               to="/contact"
               className="relative overflow-hidden px-5 py-2.5 rounded-lg border border-brand-orange text-white font-bold text-sm tracking-wide transition-all duration-500 flex items-center gap-2 group cursor-pointer max-w-max"
             >
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-brand-orange/20 to-brand-amber/20 -z-10 transition-transform duration-500 scale-x-0 group-hover:scale-x-100 origin-center ease-out"></span>
+              <span className="absolute inset-0 w-full h-full bg-linear-to-r from-brand-orange/20 to-brand-amber/20 -z-10 transition-transform duration-500 scale-x-0 group-hover:scale-x-100 origin-center ease-out"></span>
               <span className="z-10">Discuss Office Project</span>
               <ArrowUpRight className="h-4 w-4 z-10 group-hover:translate-x-0.5 group-hover:translate-y-[-0.5px] transition-transform duration-300" />
             </Link>
@@ -296,7 +295,7 @@ export default function Expertise() {
           <img 
             src={officeGif} 
             alt="Office Add-ins Development" 
-            className="w-full h-auto max-h-[420px] object-contain brightness-[0.95]" 
+            className="w-full h-auto max-h-82 object-contain brightness-[0.95]" 
             onError={(e) => {
               e.currentTarget.src = "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3p0eDZzMHZscjM4eTdqYzNhdjMyZXpxczVqdndpcTV5aGFzMHlzNSZjdD1n/qgQUggAC3PfvGTJVPQ/giphy.gif";
             }}
@@ -304,7 +303,7 @@ export default function Expertise() {
         </motion.div>
       </motion.div>
 
-      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent my-16"></div>
+      <div className="w-full h-1 bg-linear-to-r from-transparent via-white/10 to-transparent my-16"></div>
 
       <motion.div 
         initial="hidden"
