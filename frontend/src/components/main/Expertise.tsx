@@ -614,7 +614,7 @@ export default function Expertise() {
             />
             <span className="text-lg font-black text-white">ASP.NET Core</span>
             <span className="text-xs font-semibold text-brand-orange/90 hover:text-brand-orange mt-4 transition-colors duration-300 flex items-center gap-1">
-              ASP.NET Core Development <ArrowUpRight className="h-3.5 w-3.5" />
+              ASP.NET  Development <ArrowUpRight className="h-3.5 w-3.5" />
             </span>
           </motion.div>
         </div>
