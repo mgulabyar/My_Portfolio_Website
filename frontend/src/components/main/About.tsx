@@ -420,11 +420,11 @@ export default function About() {
 
         <motion.div variants={slowSlideRight} className="lg:col-span-5 flex justify-center items-center relative">
           <div className="absolute inset-0 bg-brand-orange/5 rounded-3xl blur-3xl -z-10 animate-pulse"></div>
-          <img src={aiGif} alt="Automation Systems" className="w-full h-auto max-w-[340px] max-h-72 object-contain brightness-[0.95]" />
+          <img src={aiGif} alt="Automation Systems" className="w-full h-auto max-w-85 max-h-72 object-contain brightness-[0.95]" />
         </motion.div>
       </motion.div>
 
-      <div className="w-full h-1 bg-gradient-to-r from-transparent via-white/10 to-transparent my-16"></div>
+      <div className="w-full h-1 bg-linear-to-r from-transparent via-white/10 to-transparent my-16"></div>
 
       <motion.div
         variants={containerVariants}
@@ -435,7 +435,7 @@ export default function About() {
       >
         <motion.div variants={slowSlideLeft} className="lg:col-span-5 flex justify-center items-center relative">
           <div className="absolute inset-0 bg-brand-orange/5 rounded-3xl blur-3xl -z-10 animate-pulse"></div>
-          <img src={cloudGif} alt="Cloud Architecture" className="w-full h-auto max-w-[280px] max-h-72 object-contain brightness-[0.95]" />
+          <img src={cloudGif} alt="Cloud Architecture" className="w-full h-auto max-w-70 max-h-72 object-contain brightness-[0.95]" />
         </motion.div>
 
         <div className="lg:col-span-7 flex flex-col gap-5">
