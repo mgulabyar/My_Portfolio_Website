@@ -91,7 +91,7 @@ export default function Header() {
       <Link to="/">
         <motion.div 
           variants={logoVariants}
-          className="flex items-center gap-2 cursor-pointer group select-none"
+          className="flex md:px-5 items-center gap-2 cursor-pointer group select-none"
         >
           <svg viewBox="0 0 24 24" className="h-6 w-6 text-brand-orange filter drop-shadow-[0_0_6px_#FF5500] transition-transform duration-700 group-hover:rotate-180" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2" />
