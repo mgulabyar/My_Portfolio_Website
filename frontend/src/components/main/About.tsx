@@ -232,10 +232,11 @@
 //   );
 // }
 
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { CheckCircle2, ArrowUpRight, Layers, Shield, Cpu } from 'lucide-react';
+import { CheckCircle2, ArrowUpRight, Layers, Award, Shield, Cpu } from 'lucide-react';
 import aboutImg from '../../assets/about.png';
 import webGif from '../../assets/web-development-amico.png';
 import aiGif from '../../assets/artificial-intelligence-amico.png';
@@ -284,7 +285,7 @@ export default function About() {
             className="text-3xl sm:text-4xl font-extrabold text-white leading-tight tracking-tight"
           >
             Architecting Web Ecosystems <br />
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-orange to-brand-amber">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-amber">
               & Software Automation
             </span>
           </motion.h2>
@@ -325,7 +326,7 @@ export default function About() {
               to="/contact"
               className="relative overflow-hidden px-5 py-2.5 rounded-lg border border-brand-orange text-white font-bold text-sm tracking-wide transition-all duration-500 flex items-center gap-2 group cursor-pointer max-w-max"
             >
-              <span className="absolute inset-0 w-full h-full bg-linear-to-b from-brand-orange/20 to-brand-amber/20 -z-10 transition-transform duration-500 -translate-y-full group-hover:translate-y-0 ease-out"></span>
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-b from-brand-orange/20 to-brand-amber/20 -z-10 transition-transform duration-500 -translate-y-full group-hover:translate-y-0 ease-out"></span>
               <span className="z-10">Optimize Your Workflow</span>
               <ArrowUpRight className="h-4 w-4 z-10 group-hover:translate-x-0.5 group-hover:translate-y-[-0.5px] transition-transform duration-300" />
             </Link>
@@ -348,7 +349,7 @@ export default function About() {
         </motion.div>
       </motion.div>
 
-      <div className="w-full h-1 bg-linear-to-r from-transparent via-white/10 to-transparent my-16"></div>
+      <div className="w-full h-1 bg-gradient-to-r from-transparent via-white/10 to-transparent my-16"></div>
 
       <motion.div
         variants={containerVariants}
@@ -359,11 +360,11 @@ export default function About() {
       >
         <motion.div variants={slowSlideLeft} className="lg:col-span-5 flex justify-center items-center relative">
           <div className="absolute inset-0 bg-brand-orange/5 rounded-3xl blur-3xl -z-10 animate-pulse"></div>
-          <img src={webGif} alt="Web Engineering" className="w-full h-auto max-h-80 object-contain" />
+          <img src={webGif} alt="Web Engineering" className="w-full h-auto max-h-105 object-contain" />
         </motion.div>
 
         <div className="lg:col-span-7 flex flex-col gap-5">
-          <motion.div variants={slowSlideRight} className="flex items-center gap-3">
+          <motion.div variants={slowSlideRight} className="flex items-center gap-2 select-none">
             <Layers className="h-5 w-5 text-brand-orange filter drop-shadow-[0_0_4px_#FF5500]" />
             <span className="text-xs font-mono font-bold tracking-widest text-slate-500 uppercase">Core Frameworks</span>
           </motion.div>
@@ -386,7 +387,7 @@ export default function About() {
         </div>
       </motion.div>
 
-      <div className="w-full h-1 bg-linear-to-r from-transparent via-white/10 to-transparent my-16"></div>
+      <div className="w-full h-1 bg-gradient-to-r from-transparent via-white/10 to-transparent my-16"></div>
 
       <motion.div
         variants={containerVariants}
@@ -396,7 +397,7 @@ export default function About() {
         className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center px-6 md:px-12"
       >
         <div className="lg:col-span-7 flex flex-col gap-5">
-          <motion.div variants={slowSlideLeft} className="flex items-center gap-3">
+          <motion.div variants={slowSlideLeft} className="flex items-center gap-2 select-none">
             <Cpu className="h-5 w-5 text-brand-orange filter drop-shadow-[0_0_4px_#FF5500]" />
             <span className="text-xs font-mono font-bold tracking-widest text-slate-500 uppercase">Workflow Systems</span>
           </motion.div>
@@ -420,11 +421,11 @@ export default function About() {
 
         <motion.div variants={slowSlideRight} className="lg:col-span-5 flex justify-center items-center relative">
           <div className="absolute inset-0 bg-brand-orange/5 rounded-3xl blur-3xl -z-10 animate-pulse"></div>
-          <img src={aiGif} alt="Automation Systems" className="w-full h-auto max-w-85 max-h-72 object-contain brightness-[0.95]" />
+          <img src={aiGif} alt="Automation Systems" className="w-full h-auto max-h-105 object-contain brightness-[0.95]" />
         </motion.div>
       </motion.div>
 
-      <div className="w-full h-1 bg-linear-to-r from-transparent via-white/10 to-transparent my-16"></div>
+      <div className="w-full h-1 bg-gradient-to-r from-transparent via-white/10 to-transparent my-16"></div>
 
       <motion.div
         variants={containerVariants}
@@ -435,7 +436,7 @@ export default function About() {
       >
         <motion.div variants={slowSlideLeft} className="lg:col-span-5 flex justify-center items-center relative">
           <div className="absolute inset-0 bg-brand-orange/5 rounded-3xl blur-3xl -z-10 animate-pulse"></div>
-          <img src={cloudGif} alt="Cloud Architecture" className="w-full h-auto max-w-70 max-h-72 object-contain brightness-[0.95]" />
+          <img src={cloudGif} alt="Cloud Architecture" className="w-full h-auto max-h-105 object-contain brightness-[0.95]" />
         </motion.div>
 
         <div className="lg:col-span-7 flex flex-col gap-5">
@@ -448,7 +449,7 @@ export default function About() {
             Database Architecture <span className="text-brand-orange">& DevOps Cloud</span>
           </motion.h3>
 
-          <motion.p variants={slowSlideRight} className="text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl font-light">
+          <motion.p variants={slowSlideRight} className="text-base text-slate-400 leading-relaxed max-w-2xl font-light">
             I design highly secure, normalized relational maps (SQL Server, PostgreSQL) and dynamic document models (MongoDB) built on secure cloud infrastructures like Microsoft Azure and Vercel. I establish completely automated, serverless DevOps pipelines that safely carry source datasets into live target systems with zero network interruptions. By integrating secure environment variables, strict CORS configurations, and automated GitHub Actions, I guarantee absolute data protection.
           </motion.p>
 
