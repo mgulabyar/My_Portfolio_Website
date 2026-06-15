@@ -12,6 +12,7 @@ import gmailIcon from '../../assets/gmail.png';
 import sheetsIcon from '../../assets/google-sheets.png';
 import docsIcon from '../../assets/google-docs.png';
 import formsIcon from '../../assets/google-apps-script.png';
+import Footer from '../footer/Footer';
 
 export default function Expertise() {
   const containerVariants = {
@@ -440,6 +441,7 @@ export default function Expertise() {
           </motion.div>
         </div>
       </motion.div>
+      <Footer />
     </section>
   );
 }
