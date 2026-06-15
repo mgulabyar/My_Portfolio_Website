@@ -284,7 +284,7 @@ export default function About() {
             className="text-3xl sm:text-4xl font-extrabold text-white leading-tight tracking-tight"
           >
             Architecting Web Ecosystems <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-amber">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-orange to-brand-amber">
               & Software Automation
             </span>
           </motion.h2>
@@ -325,7 +325,7 @@ export default function About() {
               to="/contact"
               className="relative overflow-hidden px-5 py-2.5 rounded-lg border border-brand-orange text-white font-bold text-sm tracking-wide transition-all duration-500 flex items-center gap-2 group cursor-pointer max-w-max"
             >
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-b from-brand-orange/20 to-brand-amber/20 -z-10 transition-transform duration-500 -translate-y-full group-hover:translate-y-0 ease-out"></span>
+              <span className="absolute inset-0 w-full h-full bg-linear-to-b from-brand-orange/20 to-brand-amber/20 -z-10 transition-transform duration-500 -translate-y-full group-hover:translate-y-0 ease-out"></span>
               <span className="z-10">Optimize Your Workflow</span>
               <ArrowUpRight className="h-4 w-4 z-10 group-hover:translate-x-0.5 group-hover:translate-y-[-0.5px] transition-transform duration-300" />
             </Link>
@@ -348,7 +348,7 @@ export default function About() {
         </motion.div>
       </motion.div>
 
-      <div className="w-full h-1 bg-gradient-to-r from-transparent via-white/10 to-transparent my-16"></div>
+      <div className="w-full h-1 bg-linear-to-r from-transparent via-white/10 to-transparent my-16"></div>
 
       <motion.div
         variants={containerVariants}
@@ -386,7 +386,7 @@ export default function About() {
         </div>
       </motion.div>
 
-      <div className="w-full h-1 bg-gradient-to-r from-transparent via-white/10 to-transparent my-16"></div>
+      <div className="w-full h-1 bg-linear-to-r from-transparent via-white/10 to-transparent my-16"></div>
 
       <motion.div
         variants={containerVariants}
@@ -420,7 +420,7 @@ export default function About() {
 
         <motion.div variants={slowSlideRight} className="lg:col-span-5 flex justify-center items-center relative">
           <div className="absolute inset-0 bg-brand-orange/5 rounded-3xl blur-3xl -z-10 animate-pulse"></div>
-          <img src={aiGif} alt="Automation Systems" className="w-full h-auto max-w-[280px] max-h-72 object-contain brightness-[0.95]" />
+          <img src={aiGif} alt="Automation Systems" className="w-full h-auto max-w-[340px] max-h-72 object-contain brightness-[0.95]" />
         </motion.div>
       </motion.div>
 
