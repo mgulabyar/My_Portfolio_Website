@@ -215,7 +215,7 @@ export default function About() {
           </motion.h3>
 
           <motion.p variants={slowSlideRight} className="text-base text-slate-400 leading-relaxed max-w-2xl font-light">
-            Designing secure relational maps and dynamic dataset layouts on secure clouds. I set up automated pipelines that carry source files into target hosting systems instantly with absolute zero network interruptions.
+            Designing secure relational map and dynamic dataset layouts on secure clouds. I set up automated pipelines that carry source files into target hosting systems instantly with absolute zero network interruptions.
           </motion.p>
 
           <motion.div variants={slowSlideRight} className="flex flex-wrap gap-2 mt-2">
