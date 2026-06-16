@@ -176,13 +176,13 @@ export default function Projects() {
                       rel="noreferrer"
                       className="px-5 py-2.5 rounded-lg border border-brand-orange text-white font-bold text-xs tracking-wider uppercase transition-all duration-300 hover:shadow-glow-orange flex items-center gap-1.5 cursor-pointer relative overflow-hidden"
                     >
-                      <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-brand-orange/20 to-brand-amber/20 -z-10 transition-transform duration-500 scale-x-0 group-hover:scale-x-100 origin-center ease-out"></span>
+                      <span className="absolute inset-0 w-full h-full bg-linear-to-r from-brand-orange/20 to-brand-amber/20 -z-10 transition-transform duration-500 scale-x-0 group-hover:scale-x-100 origin-center ease-out"></span>
                       Open Tab <ExternalLink className="h-3.5 w-3.5" />
                     </a>
                   </div>
                 </div>
 
-                <div className="bg-slate-950/80 p-6 border-t border-white/5 flex-grow flex flex-col justify-center text-center select-none">
+                <div className="bg-slate-950/80 p-6 border-t border-white/5 grow flex flex-col justify-center text-center select-none">
                   <h3 className="text-lg font-black text-white">{project.title}</h3>
                   <p className="text-xs font-semibold text-slate-400 mt-2">{project.category} & {project.subCategory}</p>
                 </div>
@@ -194,7 +194,7 @@ export default function Projects() {
 
       <AnimatePresence>
         {activeProject && (
-          <div className="fixed inset-0 bg-brand-dark/90 backdrop-blur-md z-[100] flex items-center justify-center p-4">
+          <div className="fixed inset-0 bg-brand-dark/90 backdrop-blur-md z-100 flex items-center justify-center p-4">
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -204,7 +204,7 @@ export default function Projects() {
             >
               <button 
                 onClick={() => setActiveProject(null)}
-                className="absolute top-4 right-4 md:top-6 md:right-6 text-slate-400 hover:text-brand-orange transition-colors duration-300 cursor-pointer z-[110]"
+                className="absolute top-4 right-4 md:top-6 md:right-6 text-slate-400 hover:text-brand-orange transition-colors duration-300 cursor-pointer z-110"
               >
                 <X className="h-6 w-6" />
               </button>
@@ -228,7 +228,7 @@ export default function Projects() {
                 </div>
 
                 <div className="lg:col-span-6 flex flex-col gap-4 relative">
-                  <div className="relative w-full h-[260px] sm:h-[340px] rounded-2xl overflow-hidden border border-white/10 bg-slate-950/40 p-1 flex items-center justify-center">
+                  <div className="relative w-full h-65 sm:h-85 rounded-2xl overflow-hidden border border-white/10 bg-slate-950/40 p-1 flex items-center justify-center">
                     <img src={activeProject.images[carouselIndex]} alt={activeProject.title} className="w-full h-full object-cover rounded-xl filter brightness-[0.95]" />
                     <button 
                       onClick={prevImage}
