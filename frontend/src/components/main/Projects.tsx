@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, X, ChevronLeft, ChevronRight, FolderKanban } from 'lucide-react';
 import Footer from '../footer/Footer';
@@ -9,9 +9,9 @@ interface Project {
   tagline: string;
   description: string;
   category: string;
-  subCategory: string;
+  subType: string;
   gifUrl: string; 
-  images?: string[]; 
+  images: string[]; 
   technologies: string[];
   liveUrl?: string;
 }
@@ -36,81 +36,43 @@ export default function Projects() {
   const defaultProjects: Project[] = [
     {
       _id: "1",
-      title: "YouValue",
+      title: "Orange Ledger",
       tagline: "Create professional real estate valuation reports directly in Microsoft Word and Excel.",
-      category: "Office Add-ins",
-      subCategory: "Excel Add-ins",
-      gifUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+      category: "MS Office",
+      subType: "excel",
+      gifUrl: "../../assets/orange (1).png",
       images: [
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+        "../../assets/orange (1).png",
+        "../../assets/orange (2).png",
+        "../../assets/orange (3).png",
+        // "../../assets/orange (1).png",
       ],
       description: "YouValue is a powerful Word and Excel Add-in designed to streamline the creation of professional real estate valuation reports. It integrates seamlessly with Microsoft Office, allowing users to generate comprehensive reports directly within Word and Excel. Users can easily input property data, perform valuations, and generate detailed reports that include market analysis, comparable sales, and financial projections.",
       technologies: ["Microsoft Office", "Microsoft Word", "Microsoft Excel", "Real Estate", "Automation"],
       liveUrl: "https://example.com/youvalue"
     },
-    {
-      _id: "2",
-      title: "BiasAwareness AI",
-      tagline: "Detect and flag systematic discrimination embedded within AI language models.",
-      category: "MERN Web Dev",
-      subCategory: "Word Add-ins",
-      gifUrl: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80"
-      ],
-      description: "An advanced Microsoft Word Add-in powered by GPT API that scans uploaded documents for implicit bias, gender discrimination, and non-inclusive language. It provides real-time highlights and alternative wording suggestions directly inside the editor.",
-      technologies: ["Office.js", "GPT-4 API", "TypeScript", "React", "Inclusive Design"],
-      liveUrl: "https://example.com/bias-ai"
-    },
-    {
-      _id: "3",
-      title: "Zippy Docs",
-      tagline: "Automate complex document rendering pipelines inside Excel with zero setup.",
-      category: "Office Add-ins",
-      subCategory: "Excel Add-ins",
-      gifUrl: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80"
-      ],
-      description: "A high-performance Excel Add-in built to automate the formatting, merging, and exporting of massive accounting datasets. Supports instant translation, PDF compilation, and cloud storage backup syncs.",
-      technologies: ["Excel API", "Node.js", "Azure Blob", "VBA Macros", "PDF Compiler"],
-      liveUrl: "https://example.com/zippy-docs"
-    }
+  
   ];
 
   const projects = dbProjects.length > 0 ? dbProjects : defaultProjects;
 
   const filterItems = [
-    'All', 'MERN Web Dev', 'Office Add-ins', 'Google Workspace',
-    'Word Add-ins', 'Excel Add-ins', 'PowerPoint Add-ins', 'Outlook Add-ins',
-    'Gmail Add-ons', 'Google Sheet Add-ons', 'Google Docs Add-ons', 'Google Form Add-ons'
+    'All', 'Web', 'Word', 'Excel', 'PowerPoint', 'Outlook', 'Gmail', 'Sheets', 'Docs', 'Slides', 'Calendar'
   ];
 
   const filteredProjects = selectedFilter === 'All' 
     ? projects 
-    : projects.filter(p => p.category === selectedFilter || p.subCategory === selectedFilter);
-
-  const getProjectImages = (project: Project): string[] => {
-    if (project.images && project.images.length > 0) {
-      return project.images;
-    }
-    return [project.gifUrl];
-  };
+    : projects.filter(p => p.subType.toLowerCase() === (selectedFilter === 'Web' ? 'web' : selectedFilter.toLowerCase()));
 
   const prevImage = () => {
     if (activeProject) {
-      const imgs = getProjectImages(activeProject);
-      setCarouselIndex(prev => (prev === 0 ? imgs.length - 1 : prev - 1));
+      setCarouselIndex(prev => (prev === 0 ? activeProject.images.length - 1 : prev - 1));
     }
   };
 
   const nextImage = () => {
     if (activeProject) {
-      const imgs = getProjectImages(activeProject);
-      setCarouselIndex(prev => (prev === imgs.length - 1 ? 0 : prev + 1));
+      setCarouselIndex(prev => (prev === activeProject.images.length - 1 ? 0 : prev + 1));
     }
   };
 
@@ -176,10 +138,10 @@ export default function Projects() {
                 layout
                 variants={slowSlideUp}
                 exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.3 } }}
-                className="rounded-2xl border border-white/5 overflow-hidden bg-slate-900/40 hover:border-brand-orange/30 shadow-glow-soft hover:scale-[1.02] transition-all duration-500 flex flex-col justify-between group h-[400px] relative"
+                className="rounded-2xl border border-white/5 overflow-hidden bg-slate-900/40 hover:border-brand-orange/30 shadow-glow-soft hover:scale-[1.02] transition-all duration-500 flex flex-col justify-between group h-100 relative"
               >
                 <div className="relative w-full h-[280px] overflow-hidden">
-                  <img src={getProjectImages(project)[0]} alt={project.title} className="w-full h-full object-cover filter brightness-[0.95]" />
+                  <img src={project.images[0]} alt={project.title} className="w-full h-full object-cover rounded-xl filter brightness-[0.95]" />
                   <div className="absolute inset-0 bg-brand-dark/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4 z-20">
                     <button 
                       onClick={() => {
@@ -204,7 +166,7 @@ export default function Projects() {
 
                 <div className="bg-slate-950/80 p-6 border-t border-white/5 flex-grow flex flex-col justify-center text-center select-none">
                   <h3 className="text-lg font-black text-white">{project.title}</h3>
-                  <p className="text-xs font-semibold text-slate-400 mt-2">{project.category} & {project.subCategory}</p>
+                  <p className="text-xs font-semibold text-slate-400 mt-2">{project.category} & {project.category}</p>
                 </div>
               </motion.div>
             ))}
@@ -249,7 +211,7 @@ export default function Projects() {
 
                 <div className="lg:col-span-6 flex flex-col gap-4 relative">
                   <div className="relative w-full h-[260px] sm:h-[340px] rounded-2xl overflow-hidden border border-white/10 bg-slate-950/40 p-1 flex items-center justify-center">
-                    <img src={getProjectImages(activeProject)[carouselIndex]} alt={activeProject.title} className="w-full h-full object-cover rounded-xl filter brightness-[0.95]" />
+                    <img src={activeProject.images[carouselIndex]} alt={activeProject.title} className="w-full h-full object-cover rounded-xl filter brightness-[0.95]" />
                     <button 
                       onClick={prevImage}
                       className="absolute left-4 p-2 rounded-full bg-brand-dark/80 border border-white/10 text-slate-400 hover:text-brand-orange transition-all duration-300 cursor-pointer z-10"
