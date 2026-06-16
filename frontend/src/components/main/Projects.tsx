@@ -1,4 +1,4 @@
-import  { useState, type ReactNode } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, X, ChevronLeft, ChevronRight, FolderKanban } from 'lucide-react';
 import Footer from '../footer/Footer';
@@ -8,64 +8,61 @@ import orange2 from '../../assets/orange (2).png';
 import orange3 from '../../assets/orange (3).png';
 
 interface Project {
-  [x: string]: ReactNode;
   _id: string;
   title: string;
   tagline: string;
   description: string;
   category: string;
-  subType: string;
+  subCategory: string;
+  gifUrl: string; 
   images: string[]; 
   technologies: string[];
   liveUrl?: string;
 }
 
 export default function Projects() {
+  const [dbProjects, setDbProjects] = useState<Project[]>([]);
   const [selectedFilter, setSelectedCategory] = useState('All');
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [carouselIndex, setCarouselIndex] = useState(0);
 
-  const projects: Project[] = [
+  useEffect(() => {
+    fetch('http://localhost:5000/api/projects')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success && data.data) {
+          setDbProjects(data.data);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const defaultProjects: Project[] = [
     {
       _id: "1",
       title: "Orange Ledger",
       tagline: "Intuit QuickBooks Automated Sheet Integration.",
       category: "Google Workspace",
-      subType: "sheets",
+      subCategory: "Sheets",
+      gifUrl: orange1,
       images: [orange1, orange2, orange3],
       description: "A high-performance Google Sheets add-on designed to connect natively with Intuit QuickBooks (quickbooks.com). It automates the importing, syncing, and financial ledger formatting of multi-currency transaction datasets directly into Google Sheets with zero manual setup.",
       technologies: ["Google Apps Script", "QuickBooks API", "OAuth 2.0", "Financial Ledger", "Automation"],
-      liveUrl: "https://quickbooks.intuit.com"
+      liveUrl: "/contact"
     },
-      {
-      _id: "1",
-      title: "Orange Ledger",
-      tagline: "Intuit QuickBooks Automated Sheet Integration.",
-      category: "Google Workspace",
-      subType: "sheets",
-      images: [orange1, orange2, orange3],
-      description: "A high-performance Google Sheets add-on designed to connect natively with Intuit QuickBooks (quickbooks.com). It automates the importing, syncing, and financial ledger formatting of multi-currency transaction datasets directly into Google Sheets with zero manual setup.",
-      technologies: ["Google Apps Script", "QuickBooks API", "OAuth 2.0", "Financial Ledger", "Automation"],
-      liveUrl: "https://quickbooks.intuit.com"
-    },
-      {
-      _id: "1",
-      title: "Orange Ledger",
-      tagline: "Intuit QuickBooks Automated Sheet Integration.",
-      category: "Google Workspace",
-      subType: "sheets",
-      images: [orange1, orange2, orange3],
-      description: "A high-performance Google Sheets add-on designed to connect natively with Intuit QuickBooks (quickbooks.com). It automates the importing, syncing, and financial ledger formatting of multi-currency transaction datasets directly into Google Sheets with zero manual setup.",
-      technologies: ["Google Apps Script", "QuickBooks API", "OAuth 2.0", "Financial Ledger", "Automation"],
-      liveUrl: "https://quickbooks.intuit.com"
-    },
+    
+
   ];
 
-  const filterItems = ['All', 'Sheets'];
+  const projects = dbProjects.length > 0 ? dbProjects : defaultProjects;
+
+  const filterItems = [
+    'All', 'Web', 'Word', 'Excel', 'PowerPoint', 'Outlook', 'Gmail', 'Sheets', 'Docs', 'Slides', 'Calendar'
+  ];
 
   const filteredProjects = selectedFilter === 'All' 
     ? projects 
-    : projects.filter(p => p.subType.toLowerCase() === selectedFilter.toLowerCase());
+    : projects.filter(p => p.category === selectedFilter || p.subCategory === selectedFilter);
 
   const prevImage = () => {
     if (activeProject) {
@@ -106,20 +103,20 @@ export default function Projects() {
         className="w-full px-6 md:px-12 flex flex-col gap-10"
       >
         <div className="flex flex-col items-center gap-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-orange/10 border border-brand-orange/20 text-brand-orange text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange/10 border border-brand-orange/20 text-brand-orange text-xs font-semibold">
             <FolderKanban className="h-3.5 w-3.5" />
             My Software Showcase
           </div>
-          <h2 className="text-4xl sm:text-6xl font-black text-white text-center tracking-tight">Our Portfolio</h2>
-          <p className="text-sm sm:text-lg text-slate-400 text-center max-w-3xl mx-auto leading-relaxed font-light">Explore our dynamic solutions, customized extensions, and automated systems built to simplify business workflows.</p>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white text-center tracking-tight">Our Portfolio</h2>
+          <p className="text-xs sm:text-base text-slate-400 text-center max-w-2xl mx-auto leading-relaxed font-light">Explore our dynamic solutions, customized extensions, and automated systems built to simplify business workflows.</p>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-3 w-full py-3 border-t border-b border-white/5">
+        <div className="flex flex-wrap items-center justify-center gap-3 w-full py-2 border-t border-b border-white/5">
           {filterItems.map((filter, index) => (
             <button
               key={index}
               onClick={() => setSelectedCategory(filter)}
-              className={`px-5 py-2.5 rounded-full text-sm font-semibold tracking-wider transition-all duration-300 cursor-pointer ${
+              className={`px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 cursor-pointer ${
                 selectedFilter === filter 
                   ? 'bg-brand-orange text-white shadow-glow-orange border border-brand-orange' 
                   : 'bg-white/5 border border-white/10 text-slate-300 hover:border-brand-orange/40 hover:text-brand-orange'
@@ -141,17 +138,17 @@ export default function Projects() {
                 layout
                 variants={slowSlideUp}
                 exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.3 } }}
-                className="rounded-2xl border border-white/5 overflow-hidden bg-slate-900/40 hover:border-brand-orange/30 shadow-glow-soft hover:scale-[1.02] transition-all duration-500 flex flex-col justify-between group h-100 relative"
+                className="rounded-2xl border border-white/5 overflow-hidden bg-slate-900/40 hover:border-brand-orange/30 shadow-glow-soft hover:scale-[1.02] transition-all duration-500 flex flex-col justify-between group min-h-95 h-full relative"
               >
-                <div className="relative w-full h-70 overflow-hidden">
-                  <img src={project.images[0]} alt={project.title} className="w-full h-full object-cover rounded-xl filter brightness-[0.95]" />
+                <div className="relative w-full h-[280px] overflow-hidden">
+                  <img src={project.images[0]} alt={project.title} className="w-full h-full object-cover filter brightness-[0.95]" />
                   <div className="absolute inset-0 bg-brand-dark/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4 z-20">
                     <button 
                       onClick={() => {
                         setActiveProject(project);
                         setCarouselIndex(0);
                       }}
-                      className="px-6 py-3 rounded-lg border border-white/20 text-white font-bold text-sm tracking-wider uppercase transition-all duration-300 hover:border-brand-orange hover:text-brand-orange cursor-pointer"
+                      className="px-5 py-2.5 rounded-lg border border-white/20 text-white font-bold text-xs tracking-wider uppercase transition-all duration-300 hover:border-brand-orange hover:text-brand-orange cursor-pointer"
                     >
                       Preview
                     </button>
@@ -159,17 +156,17 @@ export default function Projects() {
                       href={project.liveUrl} 
                       target="_blank" 
                       rel="noreferrer"
-                      className="px-6 py-3 rounded-lg border border-brand-orange text-white font-bold text-sm tracking-wide transition-all duration-500 flex items-center gap-1.5 cursor-pointer relative overflow-hidden"
+                      className="px-5 py-2.5 rounded-lg border border-brand-orange text-white font-bold text-xs tracking-wider uppercase transition-all duration-300 hover:shadow-glow-orange flex items-center gap-1.5 cursor-pointer relative overflow-hidden"
                     >
-                      <span className="absolute inset-0 w-full h-full bg-linear-to-r from-brand-orange/20 to-brand-amber/20 -z-10 transition-transform duration-500 scale-x-0 group-hover:scale-x-100 origin-center ease-out"></span>
+                      <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-brand-orange/20 to-brand-amber/20 -z-10 transition-transform duration-500 scale-x-0 group-hover:scale-x-100 origin-center ease-out"></span>
                       Open Tab <ExternalLink className="h-3.5 w-3.5" />
                     </a>
                   </div>
                 </div>
 
-                <div className="bg-slate-950/80 p-6 border-t border-white/5 grow flex flex-col justify-center text-center select-none">
+                <div className="bg-slate-950/80 p-6 border-t border-white/5 flex-grow flex flex-col justify-center text-center select-none">
                   <h3 className="text-xl font-extrabold text-white">{project.title}</h3>
-                  <p className="text-sm font-semibold text-slate-400 mt-2">{project.category} & {project.subCategory}</p>
+                  <p className="text-xs font-semibold text-slate-400 mt-2">{project.category} & {project.subCategory}</p>
                 </div>
               </motion.div>
             ))}
@@ -179,17 +176,17 @@ export default function Projects() {
 
       <AnimatePresence>
         {activeProject && (
-          <div className="fixed inset-0 bg-brand-dark/90 backdrop-blur-md z-100 flex items-center justify-center p-4">
+          <div className="fixed inset-0 bg-brand-dark/90 backdrop-blur-md z-[100] flex items-center justify-center p-4">
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-brand-dark/95 border border-white/10 rounded-3xl p-6 md:p-8 max-w-5xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl"
+              className="bg-brand-dark/95 border border-white/10 rounded-3xl p-6 md:p-8 max-w-6xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl"
             >
               <button 
                 onClick={() => setActiveProject(null)}
-                className="absolute top-4 right-4 md:top-6 md:right-6 text-slate-400 hover:text-brand-orange transition-colors duration-300 cursor-pointer z-110"
+                className="absolute top-4 right-4 md:top-6 md:right-6 text-slate-400 hover:text-brand-orange transition-colors duration-300 cursor-pointer z-[110]"
               >
                 <X className="h-6 w-6" />
               </button>
@@ -213,8 +210,19 @@ export default function Projects() {
                 </div>
 
                 <div className="lg:col-span-6 flex flex-col gap-4 relative">
-                  <div className="relative w-full h-65 sm:h-85 rounded-2xl overflow-hidden border border-white/10 bg-slate-950/40 p-1 flex items-center justify-center">
-                    <img src={activeProject.images[carouselIndex]} alt={activeProject.title} className="w-full h-full object-cover rounded-xl filter brightness-[0.95]" />
+                  <div className="relative w-full h-[260px] sm:h-[340px] rounded-2xl overflow-hidden border border-white/10 bg-slate-950/40 p-1 flex items-center justify-center">
+                    <AnimatePresence mode="wait">
+                      <motion.img 
+                        key={carouselIndex}
+                        src={activeProject.images[carouselIndex]} 
+                        alt={activeProject.title} 
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -50 }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                        className="w-full h-full object-cover rounded-xl filter brightness-[0.95]" 
+                      />
+                    </AnimatePresence>
                     <button 
                       onClick={prevImage}
                       className="absolute left-4 p-2 rounded-full bg-brand-dark/80 border border-white/10 text-slate-400 hover:text-brand-orange transition-all duration-300 cursor-pointer z-10"
