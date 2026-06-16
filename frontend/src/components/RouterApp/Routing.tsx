@@ -4,6 +4,7 @@ import About from "../main/About";
 import Contact from "../main/Contact";
 import Header from "../Navbar/Header";
 import Expertise from "../main/Expertise";
+import Projects from "../main/Projects";
 
 const Layout = () => {
   return (
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
       { path: "/about", element: <About /> },
       { path: "/contact", element: <Contact /> },
       { path: "/expertise", element: <Expertise />},
-      { path: "/projects", element: <div className="pt-32 text-center text-white">Projects Page (Coming Soon)</div> },
+      { path: "/projects", element: <Projects/> },
     ],
   },
 ]);
