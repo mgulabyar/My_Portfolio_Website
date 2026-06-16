@@ -66,7 +66,7 @@ export default function Footer() {
             <a href="https://github.com/mgulabyar" target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-white/5 border border-white/10 hover:border-brand-orange hover:bg-brand-orange text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-glow-orange hover:scale-110">
               <GithubIcon className="h-5 w-5" />
             </a>
-            <a href="https://twitter.com/gulabyar" target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-white/5 border border-white/10 hover:border-brand-orange hover:bg-brand-orange text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-glow-orange hover:scale-110">
+            <a href="https://x.com/GulabYaar239" target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-white/5 border border-white/10 hover:border-brand-orange hover:bg-brand-orange text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-glow-orange hover:scale-110">
               <TwitterIcon className="h-5 w-5" />
             </a>
           </div>
