@@ -125,7 +125,6 @@ export default function Projects() {
         </motion.div>
       </div>
 
-      {/* Modal - Text Left, Image Right */}
       <AnimatePresence>
         {activeProject && (
           <div className="fixed inset-0 bg-brand-dark/95 backdrop-blur-xl z-100 flex items-center justify-center p-4 md:p-8">
