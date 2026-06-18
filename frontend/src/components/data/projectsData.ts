@@ -18,26 +18,26 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-    {
+  {
     _id: "1",
     title: "Orange Ledger",
-    tagline: "Enterprise-Grade QuickBooks & Google Sheets Automation.",
+    tagline: "Automated QuickBooks & Google Sheets Sync.",
     category: "Google Add-ons",
     subType: "Google Sheet Add-ons",
     images: [orange1, orange2, orange3],
-    description: "Orange Ledger is a high-performance automation bridge designed to synchronize financial data between Intuit QuickBooks and Google Sheets natively. It eliminates manual data entry by utilizing secure OAuth 2.0 protocols to fetch real-time transaction ledgers, multi-currency reports, and profit-and-loss statements. The tool features custom automated mapping, background synchronization, and financial formatting, allowing accounting teams to generate audit-ready reports with a single click.",
-    technologies: ["Google Apps Script", "QuickBooks Online API", "OAuth 2.0 Authentication", "RESTful APIs", "JSON Data Parsing", "Financial Automation"],
+    description: "A high-performance Google Sheets add-on that automates real-time financial data synchronization with QuickBooks via secure OAuth 2.0. It streamlines ledger management and generates audit-ready reports, eliminating manual data entry for accounting and finance teams.",
+    technologies: ["Google Apps Script", "QuickBooks API", "OAuth 2.0", "RESTful APIs", "Automation"],
     liveUrl: "#"
   },
   {
     _id: "2",
     title: "GhostWriter Professional",
-    tagline: "AI-Powered Document Co-Pilot & Generative Writing Assistant.",
+    tagline: "AI-Powered Google Docs Writing Assistant.",
     category: "Google Add-ons",
     subType: "Google Docs Add-ons",
     images: [ghost, ghost1],
-    description: "GhostWriter Professional is a cutting-edge AI extension for Google Docs that integrates OpenAI's GPT-4o engine to revolutionize content creation. Built with a sophisticated React-based sidebar, it offers features like linguistic tone adjustment (Professional, Technical, Creative), real-time content rewriting, and multi-language translation. It includes a persistent history management system for tracking AI interactions and ensures all generated content is automatically injected into the document with professional styling and heading hierarchy.",
-    technologies: ["OpenAI GPT-4o API", "React.js", "Material UI (MUI)", "Google Apps Script", "Prompt Engineering", "Persistence API (UserProps)"],
+    description: "A smart Google Docs extension powered by OpenAI's GPT-4o. It features a custom React-based sidebar for instant content rewriting, tone adjustment, and multi-language support, complete with a persistent history management system for professional content creators.",
+    technologies: ["OpenAI API", "React.js", "Material UI", "Google Apps Script", "Prompt Engineering"],
     liveUrl: "#"
   }
 ];
