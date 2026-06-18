@@ -141,12 +141,10 @@ export default function Projects() {
               exit={{ opacity: 0, scale: 0.95 }}
               className="bg-brand-dark border border-white/10 rounded-4xl w-full max-w-6xl max-h-[90vh] overflow-hidden relative shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col lg:flex-row"
             >
-              {/* Close Button */}
               <button onClick={() => setActiveProject(null)} className="absolute top-6 right-6 text-slate-400 hover:text-brand-orange transition-colors z-110 cursor-pointer">
                 <X size={32} />
               </button>
 
-              {/* Left Content (Text) */}
               <div className="lg:w-1/2 p-8 md:p-12 overflow-y-auto flex flex-col justify-center order-2 lg:order-1">
                 <span className="text-brand-orange text-xs font-black uppercase tracking-[0.3em] mb-4">{activeProject.category}</span>
                 <h3 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">{activeProject.title}</h3>
