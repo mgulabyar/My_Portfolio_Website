@@ -93,7 +93,6 @@ export default function ProjectDetail() {
             <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Back to Showcase
           </Link>
 
-          {/* Page Header Area */}
           <div className="text-center mb-16">
             <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-4">{project.title}</h1>
             <p className="text-brand-orange text-lg md:text-xl font-bold italic opacity-80">{project.tagline}</p>
