@@ -165,7 +165,6 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* Right Content (Image Slider) */}
               <div className="lg:w-1/2 bg-black/20 flex items-center justify-center relative p-6 order-1 lg:order-2 border-b lg:border-b-0 lg:border-l border-white/5">
                 <AnimatePresence mode="wait">
                   <motion.div 
@@ -180,7 +179,6 @@ export default function Projects() {
                   </motion.div>
                 </AnimatePresence>
 
-                {/* Slider Controls */}
                 <div className="absolute inset-x-6 flex justify-between items-center z-20">
                   <button onClick={prevImage} className="p-3 rounded-full bg-brand-dark/80 border border-white/10 text-white hover:text-brand-orange hover:border-brand-orange transition-all cursor-pointer shadow-lg">
                     <ChevronLeft size={24} />
@@ -190,7 +188,6 @@ export default function Projects() {
                   </button>
                 </div>
                 
-                {/* Dots Indicator */}
                 <div className="absolute bottom-10 flex gap-2">
                   {activeProject.images.map((_, i) => (
                     <div key={i} className={`h-1.5 rounded-full transition-all duration-300 ${i === carouselIndex ? 'w-8 bg-brand-orange shadow-glow-orange' : 'w-2 bg-white/20'}`} />
