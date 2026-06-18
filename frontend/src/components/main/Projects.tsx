@@ -3,10 +3,13 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, X, ChevronLeft, ChevronRight} from 'lucide-react';
 
-// Images (Aapke original paths)
 import orange1 from '../../assets/orange (1).png';
 import orange2 from '../../assets/orange (2).png';
 import orange3 from '../../assets/orange (3).png';
+import ghost from '../../assets/ghostwriter.png';
+import ghost1 from '../../assets/ghostwriter.png';
+
+
 
 interface Project {
   _id: string;
@@ -37,7 +40,17 @@ export default function Projects() {
       technologies: ["Google Apps Script", "QuickBooks API", "OAuth 2.0", "Automation"],
       liveUrl: "#"
     },
-    // Mazeed projects yahan add karein categories ke mutabiq
+       {
+      _id: "2",
+      title: "Ghost Writer",
+      tagline: "GhostWriter in Google Docs",
+      category: "Google Add-ons",
+      subType: "Google Docs Add-ons",
+      images: [ghost, ghost1],
+      description: "A high-performance Google Sheets add-on designed to connect natively with Intuit QuickBooks. It automates importing, syncing, and financial ledger formatting directly into Google Sheets with zero manual setup.",
+      technologies: ["Google Apps Script", "QuickBooks API", "OAuth 2.0", "Automation"],
+      liveUrl: "#"
+    },
   ];
 
   const filterItems = [
@@ -58,16 +71,14 @@ export default function Projects() {
     <section id="projects" className="pt-32 pb-20 bg-brand-dark min-h-screen border-t border-white/5 relative select-none">
       <div className="w-full px-6 md:px-12 max-w-350 mx-auto">
         
-        {/* Header Section */}
         <div className="flex flex-col items-center gap-4 mb-16 text-center">
-          <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight uppercase">Our <span className="text-brand-orange">Portfolio</span></h2>
+          <h2 className="text-4xl md:text-4xl font-black text-white uppercase">Our <span className="text-brand-orange">Portfolio</span></h2>
           <p className="text-slate-400 max-w-3xl leading-relaxed text-sm md:text-base font-light">
             We create powerful Office add-ins and Google add-ons that simplify tasks and boost productivity. 
             Explore our work to see how we enhance business workflows with seamless integration.
           </p>
         </div>
 
-        {/* Filter Bar */}
         <div className="flex flex-wrap items-center justify-center gap-3 mb-16 py-8 border-y border-white/5">
           {filterItems.map((filter) => (
             <button
@@ -84,7 +95,6 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* Projects Grid */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
@@ -96,11 +106,9 @@ export default function Projects() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 className="group rounded-2xl border border-white/5 bg-slate-900/40 hover:border-brand-orange/30 overflow-hidden transition-all duration-500 shadow-2xl flex flex-col"
               >
-                {/* Image Container - Full Visibility */}
                 <div className="relative aspect-16/10 bg-black/40 flex items-center justify-center p-2 overflow-hidden">
                   <img src={project.images[0]} alt={project.title} className="w-full h-full object-contain filter brightness-[0.9] group-hover:scale-105 transition-transform duration-700" />
                   
-                  {/* Hover Actions */}
                   <div className="absolute inset-0 bg-brand-dark/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4 z-20">
                     <button 
                       onClick={() => { setActiveProject(project); setCarouselIndex(0); }}
@@ -114,7 +122,6 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* Card Info */}
                 <div className="p-8 bg-slate-950/80 text-center border-t border-white/5">
                   <h3 className="text-2xl font-black text-white group-hover:text-brand-orange transition-colors">{project.title}</h3>
                   <p className="text-xs font-bold text-slate-400 mt-2 uppercase tracking-widest">{project.category} • {project.subType}</p>
