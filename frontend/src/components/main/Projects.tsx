@@ -32,9 +32,9 @@ export default function Projects() {
       <div className="w-full px-6 md:px-12 max-w-350 mx-auto">
         <div className="flex flex-col items-center gap-4 mb-16 text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-orange/10 border border-brand-orange/20 text-brand-orange text-[10px] font-bold uppercase tracking-widest">
-            <FolderKanban size={14} /> Our Works
+            <FolderKanban size={14} /> My Works
           </div>
-          <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter">Our <span className="text-brand-orange">Portfolio</span></h2>
+          <h2 className="text-4xl md:text-5xl font-black text-white">My <span className="text-brand-orange">Portfolio</span></h2>
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-2.5 mb-16 py-8 border-y border-white/5">
