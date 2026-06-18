@@ -148,20 +148,20 @@ export default function Projects() {
               exit={{ opacity: 0, scale: 0.9 }}
               className="bg-brand-dark border border-white/10 rounded-3xl w-full max-w-7xl max-h-[90vh] overflow-hidden relative shadow-2xl flex flex-col"
             >
-              <div className="flex justify-between items-center p-8 border-b border-white/5">
-                <h3 className="text-3xl md:text-5xl font-black text-white uppercase">
+              <div className="flex justify-between items-center p-6 border-b border-white/5">
+                <h3 className="text-3xl md:text-4xl font-black text-white uppercase">
                   {activeProject.title}
                 </h3>
                 <button
                   onClick={() => setActiveProject(null)}
                   className="text-slate-400 hover:text-brand-orange transition-colors cursor-pointer"
                 >
-                  <X size={32} />
+                  <X size={24} />
                 </button>
               </div>
 
               <div className="flex flex-col lg:flex-row overflow-y-auto">
-                <div className="lg:w-1/2 p-8 md:p-12 order-2 lg:order-1">
+                <div className="lg:w-1/2 p-8 md:p-10 order-2 lg:order-1">
                   <h4 className="text-xl font-bold text-white mb-6">
                     {activeProject.tagline}
                   </h4>
@@ -200,13 +200,13 @@ export default function Projects() {
                   <div className="absolute inset-x-4 flex justify-between">
                     <button
                       onClick={prevImage}
-                      className="p-3 rounded-full bg-brand-orange/90 text-white shadow-glow-orange cursor-pointer hover:scale-110 transition-transform"
+                      className="p-2 rounded-full bg-brand-orange/90 text-white shadow-glow-orange cursor-pointer hover:scale-110 transition-transform"
                     >
                       <ChevronLeft size={24} />
                     </button>
                     <button
                       onClick={nextImage}
-                      className="p-3 rounded-full bg-brand-orange/90 text-white shadow-glow-orange cursor-pointer hover:scale-110 transition-transform"
+                      className="p-2 rounded-full bg-brand-orange/90 text-white shadow-glow-orange cursor-pointer hover:scale-110 transition-transform"
                     >
                       <ChevronRight size={24} />
                     </button>
