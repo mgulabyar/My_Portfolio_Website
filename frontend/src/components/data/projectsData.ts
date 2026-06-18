@@ -1,4 +1,4 @@
-import orange1 from '../assets/orange (1).png';
+import orange1 from '../../assets/orange (1).png';
 import orange2 from '../../assets/orange (2).png';
 import orange3 from '../../assets/orange (3).png';
 
