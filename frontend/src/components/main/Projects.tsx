@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion'; 
-import { ExternalLink, FolderKanban, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ExternalLink, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { projects, type Project } from '../data/projectsData';
 import Footer from '../footer/Footer';
 
@@ -31,10 +31,10 @@ export default function Projects() {
     <section id="projects" className="pt-32 pb-20 bg-brand-dark min-h-screen border-t border-white/5 relative select-none">
       <div className="w-full px-6 md:px-12 max-w-350 mx-auto">
         <div className="flex flex-col items-center gap-4 mb-16 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-orange/10 border border-brand-orange/20 text-brand-orange text-[10px] font-bold uppercase tracking-widest">
-            <FolderKanban size={14} /> My Works
-          </div>
-          <h2 className="text-4xl md:text-5xl font-black text-white">My <span className="text-brand-orange">Portfolio</span></h2>
+          <h2 className="text-3xl md:text-5xl font-black text-white">My <span className="text-brand-orange">Portfolio</span></h2>
+<p className="max-w-2xl text-slate-400 text-sm md:text-base font-medium leading-relaxed">
+  From custom Office add-ins and Google add-ons to high-performance web ecosystems built with Python, Next.js, and the MERN stack. Explore how I transform complex ideas into scalable, automated digital solutions.
+</p>
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-2.5 mb-16 py-8 border-y border-white/5">
