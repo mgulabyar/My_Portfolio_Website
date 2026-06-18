@@ -37,7 +37,6 @@ export default function Projects() {
           <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter">Our <span className="text-brand-orange">Portfolio</span></h2>
         </div>
 
-        {/* Filters */}
         <div className="flex flex-wrap items-center justify-center gap-2.5 mb-16 py-8 border-y border-white/5">
           {filterItems.map((filter) => (
             <button
@@ -52,7 +51,6 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* Grid */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
@@ -74,7 +72,6 @@ export default function Projects() {
         </motion.div>
       </div>
 
-      {/* Professional Modal (Preview) */}
       <AnimatePresence>
         {activeProject && (
           <div className="fixed inset-0 bg-brand-dark/95 backdrop-blur-xl z-200 flex items-center justify-center p-4 md:p-10">
@@ -82,13 +79,11 @@ export default function Projects() {
               initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }}
               className="bg-brand-dark border border-white/10 rounded-3xl w-full max-w-6xl max-h-[90vh] overflow-hidden relative shadow-2xl flex flex-col"
             >
-              {/* Modal Header */}
               <div className="flex justify-between items-center p-8 border-b border-white/5">
                 <h3 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter">{activeProject.title}</h3>
                 <button onClick={() => setActiveProject(null)} className="text-slate-400 hover:text-brand-orange transition-colors cursor-pointer"><X size={32} /></button>
               </div>
 
-              {/* Modal Body */}
               <div className="flex flex-col lg:flex-row overflow-y-auto">
                 <div className="lg:w-1/2 p-8 md:p-12 order-2 lg:order-1">
                   <h4 className="text-xl font-bold text-white mb-6">{activeProject.tagline}</h4>
@@ -104,7 +99,6 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* Slider Side */}
                 <div className="lg:w-1/2 bg-black/40 p-6 flex items-center justify-center relative order-1 lg:order-2 border-b lg:border-b-0 lg:border-l border-white/5 min-h-87.5">
                   <AnimatePresence mode="wait">
                     <motion.img 
