@@ -40,17 +40,17 @@ export default function Projects() {
       technologies: ["Google Apps Script", "QuickBooks API", "OAuth 2.0", "Automation"],
       liveUrl: "#"
     },
-       {
-      _id: "2",
-      title: "Ghost Writer",
-      tagline: "GhostWriter in Google Docs",
-      category: "Google Add-ons",
-      subType: "Google Docs Add-ons",
-      images: [ghost, ghost1],
-      description: "A high-performance Google Sheets add-on designed to connect natively with Intuit QuickBooks. It automates importing, syncing, and financial ledger formatting directly into Google Sheets with zero manual setup.",
-      technologies: ["Google Apps Script", "QuickBooks API", "OAuth 2.0", "Automation"],
-      liveUrl: "#"
-    },
+      {
+  _id: "2",
+  title: "GhostWriter Professional",
+  tagline: "AI-Powered Document Assistance & Smart Rewriting.",
+  category: "Google Add-ons",
+  subType: "Google Docs Add-ons",
+  images: [ghost, ghost1],
+  description: "A sophisticated Google Docs add-on that integrates OpenAI's GPT-4o-mini to provide real-time writing assistance. It features a custom React-based sidebar with tone adjustment, multi-language support, and a persistent history system. The tool automates content generation and formatting directly within the document environment.",
+  technologies: ["Google Apps Script", "OpenAI API", "React.js", "Material UI", "OAuth 2.0"],
+  liveUrl: "#"
+},
   ];
 
   const filterItems = [
