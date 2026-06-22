@@ -6,6 +6,11 @@ import ghost from "../../assets/ghostwriter.png";
 import ghost1 from "../../assets/ghostwriter (1).png";
 import bi from "../../assets/BI Inteligence.png";
 import bi1 from "../../assets/BI Inteligence (1).png";
+import outlookCrm1 from "../../assets/outlookCrm1.png"
+import outlookCrm2 from "../../assets/outlookCrm2.png"
+import outlookCrm3 from "../../assets/outlookCrm3.png"
+
+
 export interface Project {
   _id: string;
   title: string;
@@ -72,6 +77,29 @@ export const projects: Project[] = [
     "Business Intelligence",
     "Predictive Analytics",
     "Data Visualization",
+    "Automation",
+  ],
+  liveUrl: "#",
+},
+{
+  _id: "4",
+  title: "AI Outlook CRM",
+  tagline: "Intelligent Lead Extraction & Predictive Sales Scoring.",
+  category: "Microsoft Office Add-ins",
+  subType: "Microsoft Outlook Add-ins",
+  images: [outlookCrm1, outlookCrm2, outlookCrm3],
+  description:
+    "An enterprise-grade Microsoft Outlook add-in that transforms incoming emails into actionable sales opportunities using advanced AI automation. Powered by GPT-4 and a FastAPI backend, the solution performs intelligent entity extraction to capture contact details, company information, job titles, and phone numbers directly from email conversations and signatures. A built-in predictive lead scoring engine evaluates prospect intent, budget signals, and engagement potential to automatically prioritize high-value opportunities. The platform synchronizes lead data in real time with MongoDB, creating a centralized CRM workflow that eliminates manual data entry and accelerates sales follow-up processes.",
+  technologies: [
+    "React.js",
+    "Microsoft Office.js",
+    "Microsoft Outlook Add-in",
+    "FastAPI",
+    "OpenAI GPT-4",
+    "MongoDB",
+    "Named Entity Recognition (NER)",
+    "Predictive Lead Scoring",
+    "REST APIs",
     "Automation",
   ],
   liveUrl: "#",
