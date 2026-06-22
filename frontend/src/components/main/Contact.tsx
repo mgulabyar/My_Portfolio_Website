@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, ShieldCheck, Send, Clock, Building } from "lucide-react";
-import contactImg from "../../assets/contact.png";
+import contactImg from "../../assets/Voice chat-amico.png";
+import Footer from "../footer/Footer";
 
 const WhatsappIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -99,15 +100,15 @@ export default function Contact() {
         viewport={{ once: true, amount: 0.2 }}
         className="w-full flex flex-col gap-12"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-slate-900/30 border border-white/5 rounded-3xl p-8 md:p-12 backdrop-blur-sm relative overflow-hidden shadow-glow-soft">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-slate-900/30 border border-white/5 rounded-3xl p-8 md:p-12 backdrop-blur-sm relative overflow-hidden shadow-glow-soft">
           <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-brand-orange/5 blur-[100px] -z-10"></div>
 
           <motion.div
             variants={slowSlideLeft}
-            className="lg:col-span-6 flex flex-col gap-6 justify-between h-full"
+            className="lg:col-span-6 flex flex-col gap-3 justify-between h-full"
           >
-            <div className="flex flex-col gap-4">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight tracking-tight">
+            <div className="flex flex-col gap-3">
+              <h2 className="text-3xl sm:text-5xl font-bold text-white ">
                 Let's talk about <br />
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-orange to-brand-amber">
                   everything!
@@ -115,13 +116,13 @@ export default function Contact() {
               </h2>
               <p className="text-sm sm:text-base text-slate-400 leading-relaxed max-w-md">
                 Have questions or need assistance with your digital
-                transformation? Feel free to reach out. I am here to help you
+                transformation? I am here to help you
                 design, build, and deploy automated software solutions tailored
                 perfectly to your requirements.
               </p>
             </div>
 
-            <div className="w-full max-w-105 self-center lg:self-start relative mt-4">
+            <div className="w-full max-w-90 self-center lg:self-start relative mt-4">
               <img
                 src={contactImg}
                 alt="GulabYar Support Workflow"
@@ -137,7 +138,7 @@ export default function Contact() {
           <motion.div variants={slowSlideRight} className="lg:col-span-6">
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col gap-5 w-full"
+              className="flex flex-col gap-6 w-full"
             >
               <AnimatePresence>
                 {status && (
@@ -279,7 +280,7 @@ export default function Contact() {
             >
               <WhatsappIcon className="h-4 w-4 text-green-500 filter drop-shadow-[0_0_4px_#22C55E]" />
               <span className="text-xs text-slate-400 font-semibold">
-                [WhatsApp]
+                WhatsApp
               </span>
               +92 346 8016921
             </a>
@@ -323,6 +324,7 @@ export default function Contact() {
           </motion.div>
         </div>
       </motion.div>
+      <Footer/>
     </section>
   );
 }

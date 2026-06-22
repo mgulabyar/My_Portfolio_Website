@@ -160,7 +160,7 @@ export default function Header() {
         <NavLink
           to="/contact"
           className={({ isActive }) =>
-            `relative overflow-hidden px-5 py-2 rounded-lg border border-brand-orange font-bold text-xs tracking-wider uppercase transition-all duration-500 flex items-center justify-center group cursor-pointer hover:shadow-glow-orange ${
+            `relative overflow-hidden px-4 py-2 rounded-full border-brand-orange border-2 font-bold text-xs tracking-wider uppercase transition-all duration-500 flex items-center justify-center group cursor-pointer hover:shadow-glow-orange ${
               isActive ? "bg-brand-orange/20" : ""
             }`
           }
@@ -170,7 +170,6 @@ export default function Header() {
         </NavLink>
       </motion.div>
 
-      {/* Mobile Menu Button */}
       <div className="relative h-6 w-6 z-50 md:hidden">
         <button
           onClick={() => setIsOpen(!isOpen)}
