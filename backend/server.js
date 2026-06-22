@@ -35,7 +35,6 @@ const globalLimiter = rateLimit({
         success: false,
         message: "Too many requests from this IP, please try again after 15 minutes."
     }
-    // 
 });
 app.use('/api', globalLimiter);
 
