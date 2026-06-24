@@ -6,7 +6,7 @@ import { NavLink, Link } from "react-router-dom";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-
+// header. now in working
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
