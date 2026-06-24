@@ -9,7 +9,14 @@ import bi1 from "../../assets/BI Inteligence (1).png";
 import outlookCrm1 from "../../assets/outlookCrm1.png"
 import outlookCrm2 from "../../assets/outlookCrm2.png"
 import outlookCrm3 from "../../assets/outlookCrm3.png"
-
+import whats_app1 from "../../assets/what's app (1).png";
+import whats_app2 from "../../assets/what's app (2).png";
+import whats_app3 from "../../assets/what's app (3).png";
+import whats_app4 from "../../assets/what's app (4).png";
+import whats_app5 from "../../assets/what's app (5).png";
+import researchIQ1 from "../../assets/researchIQ1.png";
+import researchIQ2 from "../../assets/researchIQ2.png";
+import researchIQ3 from "../../assets/researchIQ3.png";
 
 export interface Project {
   _id: string;
@@ -42,6 +49,7 @@ export const projects: Project[] = [
     ],
     liveUrl: "#",
   },
+  
   {
     _id: "2",
     title: "GhostWriter Professional",
@@ -60,6 +68,7 @@ export const projects: Project[] = [
     ],
     liveUrl: "#",
   },
+
   {
   _id: "3",
   title: "Strategic BI Commander",
@@ -81,6 +90,7 @@ export const projects: Project[] = [
   ],
   liveUrl: "#",
 },
+
 {
   _id: "4",
   title: "AI Outlook CRM",
@@ -104,4 +114,54 @@ export const projects: Project[] = [
   ],
   liveUrl: "#",
 },
+
+{
+  _id: "5",
+  title: "WhatsApp Campaign Hub",
+  tagline: "Automated WhatsApp Messaging & Customer Engagement Platform.",
+  category: "Google Add-ons",
+  subType: "Google Sheets Add-ons",
+  images: [whats_app1, whats_app2, whats_app3, whats_app4, whats_app5],
+  description:
+    "A powerful Google Sheets automation platform that enables businesses to launch personalized WhatsApp campaigns directly from spreadsheet data. Integrated with the WhatsApp Business API, the solution automates customer notifications, order updates, invoice delivery, and marketing outreach at scale. The system supports dynamic message templating with custom placeholders, allowing each recipient to receive highly personalized communication. A built-in delivery tracking engine provides real-time visibility into message statuses, including sent, delivered, and failed notifications. Designed for high-volume operations, the platform eliminates manual outreach workflows while maintaining privacy compliance and enterprise-grade reliability.",
+  technologies: [
+    "Google Apps Script",
+    "Google Sheets API",
+    "WhatsApp Business API",
+    "Twilio API",
+    "REST APIs",
+    "Automation",
+    "Message Personalization",
+    "Campaign Management",
+    "Status Tracking",
+    "Workflow Automation",
+  ],
+  liveUrl: "#",
+},
+
+{
+  _id: "6",
+  title: "ResearchIQ Verifier",
+  tagline: "AI-Powered Fact Verification & Smart Citation Assistant.",
+  category: "Google Add-ons",
+  subType: "Google Docs Add-ons",
+  images: [researchIQ1, researchIQ2, researchIQ3],
+  description:
+    "An advanced Google Docs research assistant that combines artificial intelligence with live web intelligence to verify claims, validate facts, and generate professional citations without leaving the document workspace. Built with a modern React and Material UI interface, the platform integrates GPT-4o and real-time search capabilities to analyze highlighted content, cross-reference multiple sources, and provide instant fact verification. The system automatically generates properly formatted citations while delivering source credibility insights through a built-in confidence scoring framework. Designed for researchers, academics, journalists, and content teams, it significantly accelerates the research workflow while improving content accuracy and trustworthiness.",
+  technologies: [
+    "Google Apps Script",
+    "Google Docs API",
+    "React.js",
+    "Material UI",
+    "OpenAI GPT-4o",
+    "Google Search API",
+    "Fact Verification",
+    "Citation Generation",
+    "Prompt Engineering",
+    "Real-Time Research",
+    "Automation",
+  ],
+  liveUrl: "#",
+},
+
 ];

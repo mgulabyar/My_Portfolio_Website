@@ -20,7 +20,7 @@ import nextjsIcon from "../../assets/nextjs.png";
 import nodejsIcon from "../../assets/node.png";
 import tsIcon from "../../assets/react.png";
 import aspnetIcon from "../../assets/.net.png";
-import Footer from "../footer/Footer";
+import Footer from "../Footer/Footer";
 
 export default function Expertise() {
   const containerVariants = {
@@ -82,7 +82,7 @@ export default function Expertise() {
         <div className="lg:col-span-7 flex flex-col gap-5">
           <motion.h2
             variants={slowSlideLeft}
-            className="text-3xl sm:text-5xl font-extrabold text-white leading-tight tracking-tight"
+            className="text-3xl sm:text-5xl font-bold text-white leading-tight tracking-tight"
           >
             My Technical <br />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-orange via-brand-orange to-brand-amber">
@@ -173,7 +173,7 @@ export default function Expertise() {
 
           <motion.h3
             variants={slowSlideLeft}
-            className="text-2xl sm:text-5xl font-extrabold text-white leading-tight tracking-tight"
+            className="text-2xl sm:text-5xl font-bold text-white leading-tight tracking-tight"
           >
             MS Office 365 <br />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-orange to-brand-amber">
@@ -396,7 +396,7 @@ export default function Expertise() {
             Google Workspace Integration
           </div>
 
-          <h3 className="text-2xl sm:text-5xl font-extrabold text-white leading-tight tracking-tight">
+          <h3 className="text-2xl sm:text-5xl font-bold text-white">
             Google Workspace <br />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-orange to-brand-amber">
               Add-ons & Scripts
@@ -579,7 +579,7 @@ export default function Expertise() {
             Full-Stack Web Architectures
           </div>
 
-          <h3 className="text-2xl sm:text-5xl font-extrabold text-white leading-tight tracking-tight">
+          <h3 className="text-2xl sm:text-5xl font-bold text-white leading-tight">
             High-Performance <br />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-orange to-brand-amber">
               Web Engineering

@@ -13,7 +13,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import profileImg from "../../assets/profile.png";
-import Footer from "../footer/Footer";
+import Footer from "../Footer/Footer";
 
 export default function Hero() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -140,21 +140,21 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="pt-24 pb-8 sm:pt-32 sm:pb-12 lg:pt-40 lg:pb-16 flex flex-col justify-between select-none"
+      className="pt-20 pb-8 sm:pt-30 sm:pb-12 lg:pt-30 lg:pb-16 flex flex-col justify-between select-none"
     >
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
-        className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center w-full"
+        className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center w-full"
       >
         <motion.div
           variants={slowSlideLeft}
           className="lg:col-span-5 flex justify-center relative group"
         >
           <div className="absolute inset-0 bg-linear-to-tr from-brand-orange/10 to-brand-amber/5 rounded-2xl blur-3xl -z-10"></div>
-          <div className="relative w-full max-w-84 md:max-w-86 rounded-2xl overflow-hidden border border-white/5 hover:border-brand-orange/30 transition-all duration-700 ease-out p-1 bg-slate-900/40">
+          <div className="relative w-full max-w-80 md:max-w-86 rounded-2xl overflow-hidden border border-white/5 hover:border-brand-orange/30 transition-all duration-700 ease-out p-1 bg-slate-900/40">
             <img
               src={data.avatarUrl || profileImg}
               alt={data.name}
@@ -169,7 +169,7 @@ export default function Hero() {
         <div className="lg:col-span-7 px-6 md:px-12 flex flex-col gap-4">
           <motion.h1
             variants={slowSlideRight}
-            className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight"
+            className="text-4xl sm:text-5xl font-bold text-white leading-tight tracking-tight"
           >
             Hi, I am <br />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-orange via-brand-orange to-brand-amber">

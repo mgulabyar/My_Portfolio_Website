@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, ShieldCheck, Clock, Building, Calendar } from 'lucide-react';
 import contactImg from '../../assets/Voice chat-amico.png';
-import Footer from '../footer/Footer';
+import Footer from '../Footer/Footer';
 
 const WhatsappIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -87,7 +87,7 @@ export default function Contact() {
           <div className="lg:col-span-7 flex flex-col gap-5">
             <motion.h2 
               variants={slowSlideLeft}
-              className="text-3xl sm:text-5xl font-black text-white leading-tight tracking-tight"
+              className="text-3xl sm:text-5xl  font-bold text-white leading-tight"
             >
               Let's talk about <br />
               <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-orange to-brand-amber">
@@ -123,7 +123,7 @@ export default function Contact() {
         <div className="w-full flex flex-col items-center gap-2 px-6 md:px-12">
           <motion.h3 
             variants={slowSlideUp}
-            className="text-2xl sm:text-4xl font-extrabold text-white text-center tracking-tight"
+            className="text-2xl sm:text-4xl font-bold text-white text-center"
           >
             Get in Touch Directly
           </motion.h3>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { ExternalLink, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { projects, type Project } from "../data/projectsData";
-import Footer from "../footer/Footer";
+import Footer from "../Footer/Footer";
 
 export default function Projects() {
   const [selectedFilter, setSelectedFilter] = useState<string>("All Portfolio");
@@ -74,7 +74,7 @@ export default function Projects() {
             <button
               key={filter}
               onClick={() => setSelectedFilter(filter)}
-              className={`px-5 py-2 rounded-full text-[11px] font-black uppercase tracking-wider transition-all duration-300 cursor-pointer border ${
+              className={`px-5 py-2 rounded-full text-[12px] font-black uppercase tracking-wider transition-all duration-300 cursor-pointer border ${
                 selectedFilter === filter
                   ? "bg-brand-orange border-brand-orange text-white shadow-glow-orange"
                   : "bg-transparent border-white/10 text-slate-400 hover:border-brand-orange/40 hover:text-brand-orange"
