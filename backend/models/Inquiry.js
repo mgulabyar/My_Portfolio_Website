@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+// inquitrey.js databse schema
 const inquirySchema = new mongoose.Schema({
     name: {
         type: String,
