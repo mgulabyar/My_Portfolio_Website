@@ -15,3 +15,5 @@ router.patch("/:id/status", protect, updateInquiryStatus);
 router.delete("/:id", protect, deleteInquiry);
 
 module.exports = router;
+
+// asdfand 
