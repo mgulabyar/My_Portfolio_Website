@@ -11,7 +11,6 @@ exports.getProfile = async (req, res) => {
                 data: null
             });
         }
-// no wi'm working in profileconorljs
         res.status(200).json({
             success: true,
             data: profile
