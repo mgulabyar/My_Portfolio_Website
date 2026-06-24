@@ -33,7 +33,6 @@ const router = createBrowserRouter([
   },
 ]);
 
-// routing completed
 
 
 const Routing = () => {
