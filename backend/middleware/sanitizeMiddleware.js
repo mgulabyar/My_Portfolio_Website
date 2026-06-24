@@ -15,5 +15,4 @@ const mongoSanitize = (req, res, next) => {
     if (req.params) sanitizeData(req.params);
     next();
 };
-// module.expert = {mongoSanitize}
 module.exports = { mongoSanitize };
