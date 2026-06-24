@@ -21,7 +21,6 @@ import nodejsIcon from "../../assets/node.png";
 import tsIcon from "../../assets/react.png";
 import aspnetIcon from "../../assets/.net.png";
 import Footer from "../Footer/Footer";
-// import working is ok
 export default function Expertise() {
   const containerVariants = {
     hidden: { opacity: 0 },
