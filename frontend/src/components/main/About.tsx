@@ -52,7 +52,6 @@ export default function About() {
             <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-orange to-brand-amber">
               & Software Automation
             </span>
-            // asdfnad
           </motion.h2>
 
           <motion.p
