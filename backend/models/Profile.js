@@ -47,7 +47,6 @@ const profileSchema = new mongoose.Schema({
         trim: true,
         default: ''
     },
-    // asfand sab 
     avatarUrl: {
         type: String,
         trim: true,
