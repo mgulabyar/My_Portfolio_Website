@@ -30,7 +30,7 @@ export default function Projects() {
       : projects.filter(
           (p) => p.category === selectedFilter || p.subType === selectedFilter,
         );
-
+//  project .tsx is working
   const nextImage = () =>
     activeProject &&
     setCarouselIndex((prev) =>
