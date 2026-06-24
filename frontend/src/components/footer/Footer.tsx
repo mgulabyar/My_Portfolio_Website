@@ -36,7 +36,6 @@ export default function Footer() {
       transition: { duration: 1.5, ease: [0.16, 1, 0.3, 1] as const }
     }
   };
-// asfand sab 
   return (
     <motion.footer 
       initial="hidden"
