@@ -40,7 +40,6 @@ export default function Hero() {
   };
 
   const data = profile || defaultProfile;
-// asfand 
   const techStack = [
     "ASP.NET Core",
     "React",
