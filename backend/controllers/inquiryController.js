@@ -103,3 +103,5 @@ exports.deleteInquiry = async (req, res) => {
         });
     }
 };
+
+// inquirey contorl.js  
