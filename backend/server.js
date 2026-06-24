@@ -140,17 +140,14 @@ app.get('/api/health', (req, res) => {
     });
 });
 
-// Routes
 app.use('/api/inquiries', require('./routes/inquiryRoutes'));
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/projects', require('./routes/projectRoutes'));
 app.use('/api/profile', require('./routes/profileRoutes'));
 app.use('/api/skills', require('./routes/skillRoutes'));
 
-// For Vercel Serverless Function: Export the app
 module.exports = app;
 
-// Local Development Only: Listen on a port if not in production
 if (process.env.NODE_ENV !== 'production') {
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => {
