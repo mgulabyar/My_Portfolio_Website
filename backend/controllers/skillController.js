@@ -11,7 +11,7 @@ exports.createSkill = async (req, res) => {
             icon,
             featured
         });
-
+// skillcontroler.js working is okayu,
         res.status(201).json({
             success: true,
             message: "Skill added successfully!",
