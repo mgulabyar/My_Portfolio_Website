@@ -14,6 +14,7 @@ exports.createProject = async (req, res) => {
             githubUrl,
             featured
         });
+        // projectcontroller.js working is ok
 
         res.status(201).json({
             success: true,
